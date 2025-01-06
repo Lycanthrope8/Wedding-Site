@@ -6,7 +6,7 @@ const Nikkah = () => {
   return (
     <>
       <div className="flex flex-col items-center h-screen">
-        <div className="absolute mt-80 right-0 h-2/5 w-4/6 bg-gray-200 rounded-tl-[150px]"></div>
+        <div className="absolute mt-80 right-0 h-2/5 w-4/6 bg-white bg-opacity-40 rounded-tl-[150px]"></div>
         <div className="flex items-center justify-center space-x-4">
           <h1 className="font-passionsConflict text-9xl text-yellow-600">
             Mufti

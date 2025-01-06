@@ -5,6 +5,10 @@ module.exports = {
     extend: {
       fontFamily: {
         passionsConflict: ["Passions Conflict", "cursive"],
+        notoKufi: ["Noto Kufi Arabic", "sans-serif"],
+      },
+      colors: {
+        "custom-golden": "#DA9B61",
       },
     },
     plugins: [],

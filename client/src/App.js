@@ -6,7 +6,6 @@ import Nikkah from "./components/nikkah";
 import Holud from "./components/holud";
 import Gifts from "./components/gifts";
 import Navbar from "./components/navbar";
-import { Link } from "react-scroll";
 
 function App() {
   return (

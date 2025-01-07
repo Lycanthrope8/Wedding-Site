@@ -48,8 +48,8 @@ function App() {
 
   return (
     <>
-      <div className="bg-gradient-to-tr from-[#d1cfc5] to-[#e2e0cc] overflow-hidden">
-        <h1 className="absolute left-1/2 translate-x-[-50%] font-bold text-2xl text-custom-golden">
+      <div id="main" className="bg-gradient-to-tr from-[#d1cfc5] to-[#e2e0cc] overflow-hidden scroll-smooth">
+        <h1 className="absolute left-1/2 translate-x-[-50%] font-bold text-md lg:text-2xl text-custom-golden">
           بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِي
         </h1>
         <img
@@ -68,7 +68,7 @@ function App() {
         <Countdown targetDate="Feb 20, 2025 16:00:00" />
         <Holud />
         <Countdown targetDate="Feb 28, 2025 16:00:00" />
-        <Gifts />
+        <Gifts id="gifts" />
       </div>
     </>
   );

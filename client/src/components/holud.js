@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Holud = () => {
-    return (
-        <div className='bg-red-200 h-screen'>holud</div>
-    )
-}
+  return (
+    <div id="holud" className="bg-red-200 h-screen">
+      holud
+    </div>
+  );
+};
 
-export default Holud
+export default Holud;

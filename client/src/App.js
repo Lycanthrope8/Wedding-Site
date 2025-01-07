@@ -48,7 +48,10 @@ function App() {
 
   return (
     <>
-      <div id="main" className="bg-gradient-to-tr from-[#d1cfc5] to-[#e2e0cc] overflow-hidden scroll-smooth">
+      <div
+        id="main"
+        className="bg-gradient-to-t from-[#dad8c9] from-70% to-[#e2e0cc] overflow-hidden scroll-smooth"
+      >
         <h1 className="absolute left-1/2 translate-x-[-50%] font-bold text-md lg:text-2xl text-custom-golden">
           بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِي
         </h1>

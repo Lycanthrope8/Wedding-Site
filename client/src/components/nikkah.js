@@ -1,4 +1,5 @@
 import React from "react";
+import corner3 from "../assets/corner3.png";
 import couple from "../assets/couple.jpg";
 import heroFlower from "../assets/heroflower.png";
 
@@ -11,7 +12,20 @@ const Nikkah = () => {
         id="nikkah"
         className="w-full min-h-screen pb-12 px-4 sm:px-6 lg:px-0"
       >
-        <div className="flex items-center justify-center gap-2 lg:gap-4 mt-24 lg:mt-28">
+        <h1 className="absolute left-1/2 translate-x-[-50%] font-bold text-md lg:text-2xl text-custom-golden">
+          بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِي
+        </h1>
+        <img
+          src={corner3}
+          alt="Corner"
+          className="absolute top-100 left-0 size-24 lg:size-48 scale-x-[-1] -rotate-90 z-50"
+        />
+        <img
+          src={corner3}
+          alt="Corner"
+          className="absolute top-100 right-0 size-24 lg:size-48 rotate-90 z-50"
+        />
+        <div className="flex items-center justify-center gap-2 lg:gap-4 mt-24 lg:mt-28 pt-4 lg:pt-32">
           <h1 className="font-passionsConflict text-6xl sm:text-6xl lg:text-9xl text-yellow-600">
             Mufti
           </h1>

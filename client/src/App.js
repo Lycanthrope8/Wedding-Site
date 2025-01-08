@@ -1,95 +1,102 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import palki from "./assets/palki.png"; // Import your palki image
-import corner from "./assets/corner.png";
-import corner3 from "./assets/corner3.png";
+import { useGSAP } from "@gsap/react";
+import palki from "./assets/palki.png";
 import Nikkah from "./components/nikkah";
 import Holud from "./components/holud";
 import Gifts from "./components/gifts";
 import Navbar from "./components/navbar";
 import Countdown from "./components/countdown";
+import { ChevronDown } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
 
 function App() {
   const palkiRef = useRef(null);
-  const nikkahRef = useRef(null); // Reference to Nikkah section
+  const nikkahRef = useRef(null);
   const [isScrollEnabled, setIsScrollEnabled] = useState(false);
-  const [isPalkiHidden, setIsPalkiHidden] = useState(false); // Track whether the palki is hidden
+  const [isPalkiHidden, setIsPalkiHidden] = useState(false);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Animate Palki Section
-      gsap.to(palkiRef.current, {
-        scale: 5,
-        opacity: 0,
-        scrollTrigger: {
-          trigger: palkiRef.current,
-          start: "top top",
-          end: "top+=80% top", // Palki fades out as it grows
-          scrub: true,
-          pin: true,
-          onLeave: () => {
-            setIsScrollEnabled(true); // Enable scrolling
-            setIsPalkiHidden(true); // Hide palki
-          },
-          onEnterBack: () => {
-            setIsScrollEnabled(false); // Disable scrolling
-            setIsPalkiHidden(false); // Show palki
-          },
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: palkiRef.current,
+        start: "top top",
+        end: "top+=80% top",
+        markers: true,
+        scrub: 0.2,
+        pin: "#main",
+        onLeave: () => {
+          setIsScrollEnabled(true);
+          setIsPalkiHidden(true);
         },
-      });
-
-      // Snapping to Nikkah Section
-      ScrollTrigger.create({
-        trigger: nikkahRef.current, // Snap to this section
-        start: "top bottom", // Trigger when the bottom of the viewport reaches the Nikkah section
-        end: "top top", // End snapping when the top of the viewport aligns with the top of the section
+        onEnterBack: () => {
+          setIsScrollEnabled(false);
+          setIsPalkiHidden(false);
+        },
         snap: {
-          snapTo: 1, // Snap to the nearest progress point (e.g., 0% to 100%)
-          duration: { min: 0.5, max: 0.9 }, // Smooth snapping duration
-          // delay: 0.05, // Slight delay before snapping starts
+          snapTo: 1,
+          duration: { min: 0.5, max: 0.7 },
         },
-        scrub: true, // Enable smooth scroll
-      });
+      },
     });
 
-    return () => ctx.revert(); // Cleanup on component unmount
-  }, []);
+    tl.to(palkiRef.current, { scale: 5, opacity: 0 });
+  });
+
+  useGSAP(() => {
+    ScrollTrigger.create({
+      trigger: nikkahRef.current,
+      start: "top+=25% bottom",
+      end: "top+=20% center",
+      // markers: true,
+      snap: {
+        snapTo: 1,
+        duration: { min: 0.5, max: 0.9 },
+      },
+      scrub: true,
+    });
+  });
 
   return (
-    <div
-      id="main"
-      className={`bg-gradient-to-t from-[#dad8c9] from-70% to-[#e2e0cc] ${
-        isScrollEnabled ? "overflow-auto" : "overflow-hidden"
-      }`}
-    >
-      {/* Navbar - Always Visible */}
-
-      <Navbar />
-
-      {/* Fullscreen Palki Section */}
+    <>
       <div
-        ref={palkiRef}
-        className={`h-screen flex items-center justify-center bg-white z-50 ${
-          isPalkiHidden ? "invisible pointer-events-none" : "visible"
+        id="main"
+        className={`bg-gradient-to-t from-[#dad8c9] from-70% to-[#e2e0cc] ${
+          isScrollEnabled ? "overflow-auto" : "overflow-hidden"
         }`}
       >
-        <img src={palki} alt="Palki" className="w-full h-1/2 object-contain" />
-      </div>
+        <Navbar />
+        <div
+          ref={palkiRef}
+          className={`h-screen w-full absolute bg-white z-50 ${
+            isPalkiHidden ? "invisible pointer-events-none" : "visible"
+          }`}
+        >
+          <div className="flex flex-col items-center justify-center h-full w-full">
+            <img
+              src={palki}
+              alt="Palki"
+              className="flex w-full h-1/2 object-contain"
+            />
+            <div className="flex flex-col items-center justify-center gap-2 mt-20">
+              <h1 className="font-poppins">scroll down</h1>
+              <ChevronDown className="size-12 animate-bounce" />
+            </div>
+          </div>
+        </div>
 
-      {/* Main Content */}
-      <div ref={nikkahRef}>
-        
-        <Nikkah />
-
-        <Countdown targetDate="Feb 20, 2025 16:00:00" />
-        <Holud />
-        <Countdown targetDate="Feb 28, 2025 16:00:00" />
-        <Gifts id="gifts" />
+        <div ref={nikkahRef} className="overscroll-none">
+          <Nikkah />
+          <Countdown targetDate="Feb 23, 2025 12:00:00" color="#dad8c9" />
+          <Holud />
+          <Countdown targetDate="Feb 21, 2025 19:00:00" color="#fde047" />
+          <Gifts id="gifts" />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

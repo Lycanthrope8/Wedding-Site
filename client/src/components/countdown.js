@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import roundFrame from "../assets/round-frame2.png";
-import divider from "../assets/divider.svg";
 
-const Countdown = ({ targetDate }) => {
+const Countdown = ({ targetDate, color }) => {
   const calculateTimeLeft = () => {
     const difference = +new Date(targetDate) - +new Date();
     let timeLeft = {};
@@ -41,10 +40,23 @@ const Countdown = ({ targetDate }) => {
 
   return (
     <>
-      <div
-        className="flex justify-center items-center bg-zinc-100 pb-16 bg-cover bg-no-repeat"
-        style={{ backgroundImage: `url(${divider})` }}
-      >
+      <div className="flex justify-center items-center bg-zinc-100 pb-16 bg-cover bg-no-repeat">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1000 100"
+          fill={color}
+          className="absolute"
+        >
+          <path
+            d="M0 0v100c166.7 0 166.7-66 333.3-66S500 77 666.7 77 833.3 28 1000 28V0H0Z"
+            opacity=".5"
+          ></path>
+          <path
+            d="M0 0v100c166.7 0 166.7-66 333.3-66S500 70 666.7 70 833.3 16 1000 16V0H0Z"
+            opacity=".5"
+          ></path>
+          <path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 63 666.7 63 833.3 4 1000 4V0H0Z"></path>
+        </svg>
         <div className="flex justify-center space-x-5 lg:space-x-20 p-5 font-poppins">
           {timerComponents.length ? (
             <>

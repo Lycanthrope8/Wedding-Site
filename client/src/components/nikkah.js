@@ -2,15 +2,67 @@ import React from "react";
 import corner3 from "../assets/corner3.png";
 import couple from "../assets/couple.jpg";
 import heroFlower from "../assets/heroflower.png";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { MapPin, Clock, Calendar, Heart, ChevronRight } from "lucide-react";
 
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
+
 const Nikkah = () => {
+  const mufti = React.useRef(null);
+  const weds = React.useRef(null);
+  const momo = React.useRef(null);
+
+  useGSAP(() => {
+    ScrollTrigger.create({
+      trigger: mufti.current,
+      start: "top+=25% bottom",
+      end: "top+=20% center",
+      // markers: true,
+      snap: {
+        snapTo: 1,
+        duration: { min: 0.5, max: 0.9 },
+      },
+      scrub: true,
+    });
+  });
+
+  useGSAP(() => {
+    ScrollTrigger.create({
+      trigger: weds.current,
+      start: "top+=25% bottom",
+      end: "top+=20% center",
+      // markers: true,
+      snap: {
+        snapTo: 1,
+        duration: { min: 0.5, max: 0.9 },
+      },
+      scrub: true,
+    });
+  });
+
+  useGSAP(() => {
+    ScrollTrigger.create({
+      trigger: momo.current,
+      start: "top+=25% bottom",
+      end: "top+=20% center",
+      // markers: true,
+      snap: {
+        snapTo: 1,
+        duration: { min: 0.2, max: 0.5 },
+      },
+      scrub: true,
+    });
+  });
+
   return (
     <>
       <div
         id="nikkah"
-        className="w-full min-h-screen pb-12 px-4 sm:px-6 lg:px-0"
+        className={`w-full min-h-screen pb-12 px-4 sm:px-6 lg:px-0`}
       >
         <h1 className="absolute left-1/2 translate-x-[-50%] font-bold text-md lg:text-2xl text-custom-golden">
           بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِي
@@ -18,21 +70,30 @@ const Nikkah = () => {
         <img
           src={corner3}
           alt="Corner"
-          className="absolute top-100 left-0 size-24 lg:size-48 scale-x-[-1] -rotate-90 z-50"
+          className="absolute top-100 left-0 size-24 lg:size-48 scale-x-[-1] -rotate-90"
         />
         <img
           src={corner3}
           alt="Corner"
-          className="absolute top-100 right-0 size-24 lg:size-48 rotate-90 z-50"
+          className="absolute top-100 right-0 size-24 lg:size-48 rotate-90"
         />
-        <div className="flex items-center justify-center gap-2 lg:gap-4 mt-24 lg:mt-28 pt-4 lg:pt-32">
-          <h1 className="font-passionsConflict text-6xl sm:text-6xl lg:text-9xl text-yellow-600">
+        <div className="flex items-center justify-center gap-2 lg:gap-4 pt-24 lg:pt-32">
+          <h1
+            ref={mufti}
+            className="font-passionsConflict text-6xl sm:text-6xl lg:text-9xl text-yellow-600"
+          >
             Mufti
           </h1>
-          <span className="font-passionsConflict text-2xl sm:text-6xl lg:text-6xl">
+          <span
+            ref={weds}
+            className="font-passionsConflict text-2xl sm:text-6xl lg:text-6xl"
+          >
             weds
           </span>
-          <h1 className="font-passionsConflict text-6xl sm:text-6xl lg:text-9xl text-yellow-600">
+          <h1
+            ref={momo}
+            className="font-passionsConflict text-6xl sm:text-6xl lg:text-9xl text-yellow-600"
+          >
             Momo
           </h1>
         </div>
@@ -54,9 +115,9 @@ const Nikkah = () => {
               className="w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 object-cover mix-blend-multiply z-10"
             />
             <div className="flex flex-col items-center justify-center gap-12">
-              <h1 className="text-xl sm:text-2xl lg:text-4xl text-slate-700 font-poppins font-semibold text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
-                est!
+              <h1 className="text-xl sm:text-2xl lg:text-4xl text-slate-700 font-poppins font-semibold text-center ">
+                We're getting married! We request your gracious presence at our
+                Nikkah ceremony!
               </h1>
               <button className="flex items-center gap-x-4 justify-between px-12 py-4 text-xl bg-custom-golden bg-opacity-80 rounded-lg text-zinc-50 font-medium mt-4 hover:bg-opacity-100 transition-all duration-100">
                 RSVP

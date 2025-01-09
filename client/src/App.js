@@ -51,22 +51,6 @@ function App() {
   });
   useGSAP(() => {
     gsap.fromTo(
-      navRef.current,
-      { x: 100 },
-      {
-        x: 0,
-        scrollTrigger: {
-          trigger: palkiRef.current,
-          start: "top top",
-          end: "top+=80% top",
-          scrub: true,
-          // markers: true,
-        },
-      }
-    );
-  });
-  useGSAP(() => {
-    gsap.fromTo(
       palkibgRef.current,
       { opacity: 1 },
       {
@@ -75,8 +59,23 @@ function App() {
           trigger: palkiRef.current,
           start: "top+=30% top",
           end: "top+=80% top",
-          scrub: true,
+          scrub: 1,
           // markers: true,
+        },
+      }
+    );
+    gsap.fromTo(
+      "#nav > *",
+      { y: -200 },
+      {
+        y: 0,
+        scrollTrigger: {
+          trigger: palkiRef.current,
+          start: "center top",
+          end: "top+=80% top",
+          scrub: 1,
+          // markers: true,
+          ease: "power1.inOut",
         },
       }
     );
@@ -84,7 +83,7 @@ function App() {
 
   return (
     <>
-      <div ref={navRef} className={`transition-all duration-300`}>
+      <div id="nav" ref={navRef}>
         <Navbar />
       </div>
       <div
@@ -118,7 +117,7 @@ function App() {
           </div>
         </div>
 
-        <div ref={nikkahRef} className="overscroll-none">
+        <div ref={nikkahRef}>
           <Nikkah />
           <Countdown targetDate="Feb 23, 2025 12:00:00" color="#dad8c9" />
           <Holud />

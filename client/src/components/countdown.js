@@ -40,24 +40,26 @@ const Countdown = ({ targetDate, color }) => {
 
   return (
     <>
-      <div className="flex justify-center items-center bg-zinc-100 pb-16 bg-cover bg-no-repeat">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1000 100"
-          fill={color}
-          className="absolute"
-        >
-          <path
-            d="M0 0v100c166.7 0 166.7-66 333.3-66S500 77 666.7 77 833.3 28 1000 28V0H0Z"
-            opacity=".5"
-          ></path>
-          <path
-            d="M0 0v100c166.7 0 166.7-66 333.3-66S500 70 666.7 70 833.3 16 1000 16V0H0Z"
-            opacity=".5"
-          ></path>
-          <path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 63 666.7 63 833.3 4 1000 4V0H0Z"></path>
-        </svg>
-        <div className="flex justify-center space-x-5 lg:space-x-20 p-5 font-poppins">
+      <div className="flex flex-col justify-center items-center bg-zinc-100 pb-16 bg-cover bg-no-repeat">
+        <div className="relative w-full">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1000 100"
+            fill={color}
+            className="absolute"
+          >
+            <path
+              d="M0 0v100c166.7 0 166.7-66 333.3-66S500 77 666.7 77 833.3 28 1000 28V0H0Z"
+              opacity=".5"
+            ></path>
+            <path
+              d="M0 0v100c166.7 0 166.7-66 333.3-66S500 70 666.7 70 833.3 16 1000 16V0H0Z"
+              opacity=".5"
+            ></path>
+            <path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 63 666.7 63 833.3 4 1000 4V0H0Z"></path>
+          </svg>
+        </div>
+        <div className="flex justify-center space-x-5 lg:space-x-20 lg:p-4 font-poppins">
           {timerComponents.length ? (
             <>
               <div className="relative bg-custom-golden/25 rounded-full size-16 lg:size-28 p-4">

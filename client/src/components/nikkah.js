@@ -12,57 +12,67 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
 
 const Nikkah = () => {
+  const sectionRef = React.useRef(null);
   const mufti = React.useRef(null);
   const weds = React.useRef(null);
   const momo = React.useRef(null);
 
   useGSAP(() => {
-    ScrollTrigger.create({
-      trigger: mufti.current,
-      start: "top+=25% bottom",
-      end: "top+=20% center",
-      // markers: true,
-      snap: {
-        snapTo: 1,
-        duration: { min: 0.5, max: 0.9 },
-      },
-      scrub: true,
-    });
-  });
-
-  useGSAP(() => {
-    ScrollTrigger.create({
-      trigger: weds.current,
-      start: "top+=25% bottom",
-      end: "top+=20% center",
-      // markers: true,
-      snap: {
-        snapTo: 1,
-        duration: { min: 0.5, max: 0.9 },
-      },
-      scrub: true,
-    });
-  });
-
-  useGSAP(() => {
-    ScrollTrigger.create({
-      trigger: momo.current,
-      start: "top+=25% bottom",
-      end: "top+=20% center",
-      // markers: true,
-      snap: {
-        snapTo: 1,
-        duration: { min: 0.2, max: 0.5 },
-      },
-      scrub: true,
-    });
+    gsap.fromTo(
+      mufti.current,
+      { scale: 0.5, x: 170, y: 300 },
+      {
+        scale: 1,
+        x: 0,
+        y: 0,
+        scrollTrigger: {
+          trigger: mufti.current,
+          start: "top center",
+          end: "top top",
+          scrub: true,
+          snap: {
+            snapTo: 1,
+            duration: { min: 0.5, max: 0.9 },
+          },
+        },
+      }
+    );
+    gsap.fromTo(
+      weds.current,
+      { scale: 0.5, y: 307 },
+      {
+        scale: 1,
+        y: 0,
+        scrollTrigger: {
+          trigger: weds.current,
+          start: "top center",
+          end: "top top",
+          scrub: true,
+        },
+      }
+    );
+    gsap.fromTo(
+      momo.current,
+      { scale: 0.5, x: -155, y: 332 },
+      {
+        scale: 1,
+        x: 0,
+        y: 0,
+        scrollTrigger: {
+          trigger: momo.current,
+          start: "top center",
+          end: "top top",
+          scrub: true,
+        },
+      }
+    );
   });
 
   return (
     <>
       <div
         id="nikkah"
-        className={`w-full min-h-screen pb-12 px-4 sm:px-6 lg:px-0`}
+        className="w-full min-h-screen pb-12 px-4 sm:px-6 lg:px-0"
       >
         <h1 className="absolute left-1/2 translate-x-[-50%] font-bold text-md lg:text-2xl text-custom-golden">
           بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِي
@@ -77,22 +87,25 @@ const Nikkah = () => {
           alt="Corner"
           className="absolute top-100 right-0 size-24 lg:size-48 rotate-90"
         />
-        <div className="flex items-center justify-center gap-2 lg:gap-4 pt-24 lg:pt-32">
+        <div
+          className="flex items-center justify-center gap-2 lg:gap-4 pt-24 lg:pt-32"
+          ref={sectionRef}
+        >
           <h1
             ref={mufti}
-            className="font-passionsConflict text-6xl sm:text-6xl lg:text-9xl text-yellow-600"
+            className="font-passionsConflict text-6xl sm:text-6xl lg:text-9xl text-yellow-600 z-40 "
           >
             Mufti
           </h1>
           <span
             ref={weds}
-            className="font-passionsConflict text-2xl sm:text-6xl lg:text-6xl"
+            className="font-passionsConflict text-2xl sm:text-6xl lg:text-6xl z-40 "
           >
             weds
           </span>
           <h1
             ref={momo}
-            className="font-passionsConflict text-6xl sm:text-6xl lg:text-9xl text-yellow-600"
+            className="font-passionsConflict text-6xl sm:text-6xl lg:text-9xl text-yellow-600 z-40 "
           >
             Momo
           </h1>
@@ -119,7 +132,7 @@ const Nikkah = () => {
                 We're getting married! We request your gracious presence at our
                 Nikkah ceremony!
               </h1>
-              <button className="flex items-center gap-x-4 justify-between px-12 py-4 text-xl bg-custom-golden bg-opacity-80 rounded-lg text-zinc-50 font-medium mt-4 hover:bg-opacity-100 transition-all duration-100">
+              <button className="flex items-center gap-x-4 justify-between px-12 py-4 text-xl bg-custom-golden bg-opacity-80 rounded-lg text-zinc-50 font-medium mt-4 hover:bg-opacity-100 transition-all duration-200">
                 RSVP
                 <ChevronRight
                   className="-mb-0.5 size-6 text-zinc-50"
@@ -136,7 +149,7 @@ const Nikkah = () => {
           </h2>
 
           <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
-            <div className="w-full lg:w-1/2 bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-white/20 transform hover:scale-102 transition-all duration-300">
+            <div className="w-full lg:w-1/2 bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-sm p-8 rounded-2xl border border-white/20 transform hover:scale-102 transition-all duration-300">
               <div className="relative justify-center">
                 <Heart className="absolute -top-10 right-0 w-8 h-8 text-yellow-600 opacity-50" />
                 {/* <h3 className="text-2xl lg:text-3xl font-poppins font-semibold text-slate-700 mb-8">
@@ -197,7 +210,7 @@ const Nikkah = () => {
               </div>
             </div>
 
-            <div className="w-full lg:w-1/2 h-[300px] sm:h-[400px] rounded-2xl overflow-hidden shadow-xl">
+            <div className="w-full lg:w-1/2 h-[300px] sm:h-[400px] rounded-2xl overflow-hidden">
               <iframe
                 title="Venue Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2414477099906!2d-73.86035232346177!3d40.76121213912591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25fe93afd0c2d%3A0xa1de5312b54aa2bc!2s1%20Marina%20Rd%2C%20Flushing%2C%20NY%2011368!5e0!3m2!1sen!2sus!4v1704644019346!5m2!1sen!2sus"

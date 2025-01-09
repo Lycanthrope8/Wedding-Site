@@ -1,60 +1,48 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import heroFlower from "../assets/heroflower.png";
 import holudbg from "../assets/holudbg.png";
+import { ChevronRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
 
 const Holud = () => {
   const sectionRef = useRef(null);
-  const flowerRef = useRef(null);
   const topLeftFlowerRef = useRef(null);
   const bottomRightFlowerRef = useRef(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        topLeftFlowerRef.current,
-        { rotate: 90, x: -200 },
-        {
-          rotate: 10,
-          x: 40,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top center",
-            end: "top top",
-            scrub: true,
-          },
+  useGSAP(() => {
+    gsap.fromTo(
+      topLeftFlowerRef.current,
+      { rotate: 90, x: -200 },
+      {
+        rotate: 10,
+        x: 40,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top center",
+          end: "top top",
+          scrub: true,
         },
-        bottomRightFlowerRef.current,
-        { rotate: 90, x: 200 },
-        {
-          rotate: 10,
-          x: 40,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top center",
-            end: "top top",
-            scrub: true,
-          },
+      }
+    );
+    gsap.fromTo(
+      bottomRightFlowerRef.current,
+      { rotate: 90, x: 200 },
+      {
+        rotate: 10,
+        x: 0,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top center",
+          end: "top top",
+          scrub: true,
         },
-        flowerRef.current,
-        { scale: 0 },
-        {
-          scale: 1,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top center",
-            end: "bottom center",
-            scrub: true,
-          },
-        }
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+      }
+    );
+  });
 
   return (
     <div
@@ -66,24 +54,44 @@ const Holud = () => {
         ref={topLeftFlowerRef}
         src={holudbg}
         alt="Holud Background"
-        className="absolute -top-40 -left-20 object-contain w-40 h-40 lg:w-96 lg:h-96 z-50 transfrom-origin-top-left transition-all duration-1000 ease-in-out"
+        className="absolute -top-40 -left-20 object-contain w-40 h-40 lg:w-96 lg:h-96 z-50 transfrom-origin-top-left transition-all duration-1000 ease-in-out animate-leaf"
       />
       <img
         ref={bottomRightFlowerRef}
         src={holudbg}
         alt="Holud Background"
-        className="absolute -bottom-20 -right-20 object-contain w-40 h-40 lg:w-96 lg:h-96 z-50 mix-blend-multiply transfrom-origin-bottom-right transition-all duration-1000 ease-in-out"
+        className="absolute -bottom-20 -right-20 object-contain w-40 h-40 lg:w-96 lg:h-96 z-50 mix-blend-multiply transfrom-origin-bottom-right transition-all duration-1000 ease-in-out animate-leaf"
       />
-      <div className="flex flex-col items-center justify-center gap-4 pt-28">
-        <h1 className="text-5xl lg:text-7xl text-custom-golden font-passionsConflict">
+      <div className=" h-full flex flex-col items-center justify-evenly pt-28">
+        <h1 className="text-6xl lg:text-7xl text-custom-golden font-passionsConflict">
           Join us on our Holud ceremony!
         </h1>
-        <img
-          ref={flowerRef}
-          src={heroFlower}
-          alt="Hero Flower"
-          className="w-24 lg:w-96"
-        />
+        <div className="w-3/4 flex">
+          <p className="text-lg lg:text-2xl text-center px-4 lg:px-20 text-zinc-700 text-pretty">
+            Sometimes, the most beautiful love stories are the ones crafted by
+            fate. As soon as our paths crossed, time seemed to stop. It was as
+            if fate had stitched our meeting into the very fabric of time. It
+            all started in the most traditional way: two individuals met in a
+            sea of people and opened up a conversation. Every shared laugh,
+            stolen look, and deep talk has woven our love tale.
+          </p>
+          <p className="text-lg lg:text-2xl text-center px-4 lg:px-20 text-zinc-700 text-pretty">
+            Every second we spend together feels like a gift we hold close to
+            our hearts. Our love gets stronger every day, and we're excited
+            about all the things that could happen on this journey together.
+            We're not just partners; we're also those with dreams who are
+            walking hand-in-hand toward a future full of love and excitement.
+            Let's enjoy this amazing relationship and every lovely moment we
+            share, knowing this is merely the beginning of our forever.
+          </p>
+        </div>
+        <button className="flex items-center gap-x-4 justify-between px-12 py-4 text-xl bg-custom-golden bg-opacity-80 rounded-lg text-zinc-50 font-medium mt-4 hover:bg-opacity-100 transition-all duration-200">
+          RSVP
+          <ChevronRight
+            className="-mb-0.5 size-6 text-zinc-50"
+            strokeWidth={2.5}
+          />
+        </button>
       </div>
     </div>
   );

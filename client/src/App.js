@@ -27,8 +27,10 @@ function App() {
         start: "top top",
         end: "top+=80% top",
         // markers: true,
-        scrub: true,
+        scrub: 1,
         pin: "#main",
+        pinSpacing: false,
+        anticipatePin: 1,
         onLeave: () => {
           setIsScrollEnabled(true);
           setIsPalkiHidden(true);
@@ -38,15 +40,31 @@ function App() {
           setIsPalkiHidden(false);
         },
         snap: {
-          snapTo: 1,
-          duration: { min: 0.5, max: 0.9 },
+          snapTo: [0, 1],
+          duration: 0.5,
+          ease: "power1.inOut",
         },
       },
     });
 
     tl.to(palkiRef.current, { scale: 5, opacity: 0 });
   });
-
+  useGSAP(() => {
+    gsap.fromTo(
+      navRef.current,
+      { x: 100 },
+      {
+        x: 0,
+        scrollTrigger: {
+          trigger: palkiRef.current,
+          start: "top top",
+          end: "top+=80% top",
+          scrub: true,
+          // markers: true,
+        },
+      }
+    );
+  });
   useGSAP(() => {
     gsap.fromTo(
       palkibgRef.current,
@@ -63,26 +81,10 @@ function App() {
       }
     );
   });
-  useGSAP(() => {
-    gsap.fromTo(
-      navRef.current,
-      { opacity: 0 },
-      {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: palkiRef.current,
-          start: "top top",
-          end: "top+=80% top",
-          scrub: true,
-          // markers: true,
-        },
-      }
-    );
-  });
 
   return (
     <>
-      <div ref={navRef}>
+      <div ref={navRef} className={`transition-all duration-300`}>
         <Navbar />
       </div>
       <div
@@ -93,7 +95,7 @@ function App() {
       >
         <div
           ref={palkibgRef}
-          className={`absolute w-full h-full bg-zinc-50 z-30 ${
+          className={`absolute w-full h-screen bg-zinc-50 z-30 ${
             isScrollEnabled ? "invisible pointer-events-none" : "visible"
           }`}
         ></div>

@@ -1,4 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import Lenis from "lenis";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,8 +10,10 @@ import Gifts from "./components/gifts";
 import Navbar from "./components/navbar";
 import Countdown from "./components/countdown";
 import { ChevronDown } from "lucide-react";
+import Ourstory from "./components/ourstory";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
+gsap.ticker.lagSmoothing(0);
 
 function App() {
   const palkiRef = useRef(null);
@@ -20,13 +23,29 @@ function App() {
   const [isScrollEnabled, setIsScrollEnabled] = useState(false);
   const [isPalkiHidden, setIsPalkiHidden] = useState(false);
 
+  useEffect(() => {
+    const lenis = new Lenis({
+      autoRaf: true,
+      smooth: true,
+    });
+
+    lenis.on("scroll", ScrollTrigger.update);
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    return () => lenis.destroy();
+  }, []);
+
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: palkiRef.current,
         start: "top top",
         end: "top+=80% top",
-        // markers: true,
         scrub: 1,
         pin: "#main",
         pinSpacing: false,
@@ -49,6 +68,7 @@ function App() {
 
     tl.to(palkiRef.current, { scale: 5, opacity: 0 });
   });
+
   useGSAP(() => {
     gsap.fromTo(
       palkibgRef.current,
@@ -60,10 +80,10 @@ function App() {
           start: "top+=30% top",
           end: "top+=80% top",
           scrub: 1,
-          // markers: true,
         },
       }
     );
+
     gsap.fromTo(
       "#nav > *",
       { y: -200 },
@@ -74,7 +94,6 @@ function App() {
           start: "center top",
           end: "top+=80% top",
           scrub: 1,
-          // markers: true,
           ease: "power1.inOut",
         },
       }
@@ -118,6 +137,7 @@ function App() {
         </div>
 
         <div ref={nikkahRef}>
+          <Ourstory />
           <Nikkah />
           <Countdown targetDate="Feb 23, 2025 12:00:00" color="#dad8c9" />
           <Holud />

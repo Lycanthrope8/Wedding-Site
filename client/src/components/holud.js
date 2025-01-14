@@ -26,6 +26,16 @@ const Holud = () => {
           end: "top top",
           scrub: true,
         },
+        onComplete: () => {
+          gsap.to(topLeftFlowerRef.current, {
+            rotate: 0,
+            x: 20,
+            duration: 2,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: -1,
+          });
+        }
       }
     );
     gsap.fromTo(
@@ -40,6 +50,16 @@ const Holud = () => {
           end: "top top",
           scrub: true,
         },
+        onComplete: () => {
+          gsap.to(bottomRightFlowerRef.current, {
+            rotate: 0,
+            x: -20,
+            duration: 2,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: -1,
+          });
+        }
       }
     );
   });
@@ -51,16 +71,18 @@ const Holud = () => {
       className="relative bg-gradient-to-b from-zinc-100 from-10% via-amber-200 via-40% to-[#fde047] h-max pb-8 lg:pb-0 lg:h-screen"
     >
       <img
+        id="holudleaf1"
         ref={topLeftFlowerRef}
         src={holudbg}
         alt="Holud Background"
-        className="absolute -top-40 -left-20 object-contain w-40 h-40 lg:w-96 lg:h-96 z-50 transfrom-origin-top-left transition-all duration-1000 ease-in-out animate-leaf"
+        className={`absolute -top-40 -left-20 object-contain w-40 h-40 lg:w-96 lg:h-96 z-50 transfrom-origin-top-left transition-all duration-1000 ease-in-out`}
       />
       <img
+        id="holudleaf2"
         ref={bottomRightFlowerRef}
         src={holudbg}
         alt="Holud Background"
-        className="absolute -bottom-20 -right-20 object-contain w-40 h-40 lg:w-96 lg:h-96 z-50 mix-blend-multiply transfrom-origin-bottom-right transition-all duration-1000 ease-in-out animate-leaf"
+        className="absolute -bottom-20 -right-20 object-contain w-40 h-40 lg:w-96 lg:h-96 z-50 mix-blend-multiply transfrom-origin-bottom-right transition-all duration-1000 ease-in-out"
       />
       <div className=" h-full flex flex-col items-center justify-evenly p-0 lg:pt-28">
         <h1 className="text-4xl lg:text-7xl text-custom-golden font-passionsConflict">

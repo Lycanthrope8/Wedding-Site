@@ -17,13 +17,13 @@ module.exports = {
         roundBorder: "url('../src/assets/round-frame.png')",
       },
       animation: {
-        leaf: "leafAnimation 8s ease-in infinite",
+        leaf: "leafAnimation 8s ease-in-out infinite",
       },
       keyframes: {
         leafAnimation: {
-          "0%": { transform: "rotate(0deg)" },
-          "50%": { transform: "rotate(15deg)" },
-          "100%": { transform: "rotate(0deg)" },
+          "0%": { transform: "rotate(var(--rotate-start, 0deg))" },
+          "50%": { transform: "rotate(var(--rotate-middle, 15deg))" },
+          "100%": { transform: "rotate(var(--rotate-end, 0deg))" },
         },
       },
     },

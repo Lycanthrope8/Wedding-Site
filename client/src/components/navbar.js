@@ -4,7 +4,7 @@ const Navbar = () => {
   const scrollToSection = (section) => {
     const element = document.getElementById(section);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", ease: "" });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
   return (

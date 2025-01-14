@@ -16,16 +16,6 @@ module.exports = {
       backgroundImage: {
         roundBorder: "url('../src/assets/round-frame.png')",
       },
-      animation: {
-        leaf: "leafAnimation 8s ease-in-out infinite",
-      },
-      keyframes: {
-        leafAnimation: {
-          "0%": { transform: "rotate(var(--rotate-start, 0deg))" },
-          "50%": { transform: "rotate(var(--rotate-middle, 15deg))" },
-          "100%": { transform: "rotate(var(--rotate-end, 0deg))" },
-        },
-      },
     },
     plugins: [],
   }

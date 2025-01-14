@@ -13,7 +13,6 @@ import { ChevronDown } from "lucide-react";
 import Ourstory from "./components/ourstory";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
-gsap.ticker.lagSmoothing(0);
 
 function App() {
   const palkiRef = useRef(null);
@@ -95,6 +94,7 @@ function App() {
           end: "top+=80% top",
           scrub: 1,
           ease: "power1.inOut",
+          toggleActions: "play none none reverse",
         },
       }
     );

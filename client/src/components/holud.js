@@ -26,16 +26,6 @@ const Holud = () => {
           end: "top top",
           scrub: true,
         },
-        // onComplete: () => {
-        //   gsap.to(topLeftFlowerRef.current, {
-        //     rotate: 0,
-        //     x: 0,
-        //     duration: 1,
-        //     ease: "sine.inOut",
-        //     yoyo: true,
-        //     repeat: -1,
-        //   });
-        // }
       }
     );
     gsap.fromTo(
@@ -46,20 +36,10 @@ const Holud = () => {
         x: 0,
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "center center",
+          start: "center+=10% center",
           end: "top top",
           scrub: true,
         },
-        // onComplete: () => {
-        //   gsap.to(bottomRightFlowerRef.current, {
-        //     rotate: 0,
-        //     x: 0,
-        //     duration: 1,
-        //     ease: "sine.inOut",
-        //     yoyo: true,
-        //     repeat: -1,
-        //   });
-        // }
       }
     );
   });

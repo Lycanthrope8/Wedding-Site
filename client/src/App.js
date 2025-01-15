@@ -9,7 +9,7 @@ import Holud from "./components/holud";
 import Gifts from "./components/gifts";
 import Navbar from "./components/navbar";
 import Countdown from "./components/countdown";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import Ourstory from "./components/ourstory";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -129,10 +129,17 @@ function App() {
               alt="Palki"
               className="flex w-full h-3/5 object-contain"
             />
-            <div className="flex flex-col items-center justify-center gap-2 mt-20">
-              <h1 className="font-poppins">scroll down</h1>
-              <ChevronDown className="size-12 animate-bounce" />
-            </div>
+            {window.innerWidth < 768 ? (
+              <div className="flex flex-col items-center justify-center gap-2 mb-20">
+                <ChevronUp className="size-12 animate-bounce" />
+                <h1 className="font-poppins">swipe up</h1>
+              </div>
+            ) : (
+              <div className="flex flex-col items-center justify-center gap-2 mt-20">
+                <h1 className="font-poppins">scroll down</h1>
+                <ChevronDown className="size-12 animate-bounce" />
+              </div>
+            )}
           </div>
         </div>
 

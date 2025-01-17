@@ -1,6 +1,6 @@
 import React from "react";
 import couple from "../assets/couple.jpg";
-import heroFlower from "../assets/heroflower.png";
+import heroFlower from "../assets/heroflower.webp";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

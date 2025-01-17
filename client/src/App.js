@@ -127,6 +127,8 @@ function App() {
             <img
               src={palki}
               alt="Palki"
+              loading="lazy"
+              fetchPriority="high"
               className="flex w-full h-3/5 object-contain"
             />
             {window.innerWidth < 768 ? (

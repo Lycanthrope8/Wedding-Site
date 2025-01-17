@@ -15,7 +15,6 @@ module.exports = {
         "custom-golden": "#DA9B61",
       },
       backgroundImage: {
-        roundBorder: "url('../src/assets/round-frame.png')",
         flowerpattern: "url('../src/assets/flowerpattern.png')",
       },
     },

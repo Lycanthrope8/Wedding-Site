@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import roundFrame from "../assets/round-frame2.png";
+import roundFrame from "../assets/round-frame2.webp";
 
 const Countdown = ({ targetDate, color }) => {
   const calculateTimeLeft = () => {

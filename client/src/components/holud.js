@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import holudbg from "../assets/holudbg.png";
+import holudbg from "../assets/holudbg.webp";
 import { ChevronRight } from "lucide-react";
 import Flowerpattern from "../assets/flowerpattern";
 import WeddingTimeline from "./timeline";

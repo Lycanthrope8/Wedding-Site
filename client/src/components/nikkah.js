@@ -91,6 +91,8 @@ const Nikkah = () => {
           <img
             src={heroFlower}
             alt="Hero Flower"
+            loading="lazy"
+            fetchPriority="high"
             className="size-0 lg:size-96"
           />
           <div className="flex flex-col sm:flex-row items-center gap-6 sm:justify-between mx-auto md:ml-auto md:mx-0 mt-8 sm:mt-12 p-6 sm:px-12 min-h-[300px] w-11/12 sm:w-5/6 lg:w-4/6 bg-white/40 rounded-3xl md:rounded-l-[140px] md:rounded-r-none">

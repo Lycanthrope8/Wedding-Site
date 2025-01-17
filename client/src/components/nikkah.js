@@ -4,30 +4,96 @@ import heroFlower from "../assets/heroflower.png";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-import { MapPin, Clock, Calendar, Heart, ChevronRight } from "lucide-react";
+import WeddingTimeline from "./timeline";
+import PipesPattern from "../assets/pipespattern";
+import { GiDiamondRing } from "react-icons/gi";
+import {
+  MapPin,
+  Clock,
+  Calendar,
+  Heart,
+  ChevronRight,
+  GlassWater,
+  UtensilsCrossed,
+  Mic2,
+  Cake,
+  Music,
+  PartyPopper,
+} from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
 
 const Nikkah = () => {
+  const nikkahEvents = [
+    { time: "4:00 PM", title: "CEREMONY", Icon: GiDiamondRing },
+    { time: "5:00 PM", title: "DRINKS", Icon: GlassWater },
+    { time: "6:00 PM", title: "DINNER", Icon: UtensilsCrossed },
+    { time: "7:00 PM", title: "SPEECHES", Icon: Mic2 },
+    { time: "8:00 PM", title: "CAKE", Icon: Cake },
+    { time: "8:30 PM", title: "DANCING", Icon: Music },
+    { time: "9:30 PM", title: "FAREWELL", Icon: PartyPopper },
+  ];
+  const saveTheDate = () => {
+    const event = {
+      text: "Wedding Ceremony",
+      dates: "20250220T160000Z/20250220T180000Z",
+      details: "Wedding Ceremony",
+      location: "1 Marina Rd, Flushing, NY 11368",
+    };
+
+    const googleCalendarLink = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
+      event.text
+    )}&dates=${event.dates}&details=${encodeURIComponent(
+      event.details
+    )}&location=${encodeURIComponent(event.location)}&sf=true&output=xml`;
+
+    const appleCalendarFile = `BEGIN:VCALENDAR
+  VERSION:2.0
+  CALSCALE:GREGORIAN
+  BEGIN:VEVENT
+  DTSTART:20250220T160000Z
+  DTEND:20250220T180000Z
+  SUMMARY:Wedding Ceremony
+  DESCRIPTION:Join us for our special day!
+  LOCATION:1 Marina Rd, Flushing, NY 11368
+  END:VEVENT
+  END:VCALENDAR`;
+
+    const calendarChoice = window.confirm(
+      "Choose calendar type:\nOK for Google Calendar\nCancel for Apple Calendar"
+    );
+
+    if (calendarChoice) {
+      window.open(googleCalendarLink, "_blank");
+    } else {
+      const element = document.createElement("a");
+      const file = new Blob([appleCalendarFile], { type: "text/calendar" });
+      element.href = URL.createObjectURL(file);
+      element.download = "wedding-ceremony.ics";
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    }
+  };
+
   return (
     <>
       <div
         id="nikkah"
-        className="w-full min-h-screen pb-12 px-4 sm:px-6 lg:px-0"
+        className="relative w-full min-h-screen pb-12 px-4 sm:px-6 lg:px-0"
       >
-        <h2 className="text-center text-slate-700 font-poppins font-semibold text-sm sm:text-base mt-4">
+        <h2 className="text-center text-slate-700 font-poppins font-semibold text-sm sm:text-base pt-28">
           Join us on this happy beginning of our new life
         </h2>
 
-        <div className="flex justify-between items-center mt-2 sm:mt-12">
+        <div className="flex justify-between items-center mt-2">
           <img
             src={heroFlower}
             alt="Hero Flower"
             className="size-0 lg:size-96"
           />
-          <div className="flex flex-col sm:flex-row items-center gap-6 sm:justify-between mx-auto md:ml-auto md:mx-0 mt-12 sm:mt-20 p-6 sm:px-12 min-h-[300px] w-11/12 sm:w-5/6 lg:w-4/6 bg-white/40 rounded-3xl md:rounded-l-[140px] md:rounded-r-none">
+          <div className="flex flex-col sm:flex-row items-center gap-6 sm:justify-between mx-auto md:ml-auto md:mx-0 mt-8 sm:mt-12 p-6 sm:px-12 min-h-[300px] w-11/12 sm:w-5/6 lg:w-4/6 bg-white/40 rounded-3xl md:rounded-l-[140px] md:rounded-r-none">
             <img
               src={couple}
               alt="Couple"
@@ -49,8 +115,9 @@ const Nikkah = () => {
           </div>
         </div>
 
-        <div className="mt-12 sm:mt-20 px-4 sm:px-8 lg:px-12">
-          <h2 className="text-center text-3xl sm:text-4xl lg:text-6xl text-yellow-600 font-passionsConflict mb-6 sm:mb-8">
+        <PipesPattern />
+        <div className=" mt-12 sm:mt-20 px-4 sm:px-8 lg:px-12">
+          <h2 className="text-center text-3xl sm:text-4xl lg:text-7xl text-yellow-600 font-passionsConflict mb-6 sm:mb-8">
             Venue Location
           </h2>
 
@@ -58,38 +125,34 @@ const Nikkah = () => {
             <div className="w-full lg:w-1/2 bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-sm p-8 rounded-2xl border border-white/20 transform hover:scale-102 transition-all duration-300">
               <div className="relative justify-center">
                 <Heart className="absolute -top-10 right-0 w-8 h-8 text-yellow-600 opacity-50" />
-                {/* <h3 className="text-2xl lg:text-3xl font-poppins font-semibold text-slate-700 mb-8">
-                  Ceremony Details
-                </h3> */}
 
-                <div className="space-y-6">
+                <div className="space-y-6 flex flex-col items-center justify-center">
                   <div className="flex items-center gap-4 text-slate-700 group">
-                    <div className="p-3 bg-yellow-50 rounded-xl group-hover:bg-yellow-100 transition-colors duration-300">
-                      <Calendar className="w-6 h-6 text-yellow-600" />
-                    </div>
                     <div>
-                      <p className="text-sm text-yellow-600 font-medium">
-                        Date
+                      <p
+                        className="text-lg text-yellow-600 font-medium flex items-center gap-2"
+                        onClick={saveTheDate}
+                      >
+                        <Calendar /> Save the Date
                       </p>
-                      <span className="font-semibold text-lg">
-                        February 20, 2025
-                      </span>
+                      <div className="grid grid-cols-3 divide-x gap-8 font-semibold text-4xl">
+                        <span className="text-center">February</span>
+                        <span className="text-center">20</span>
+                        <span className="text-center">2025</span>
+                      </div>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-4 text-slate-700 group">
-                    <div className="p-3 bg-yellow-50 rounded-xl group-hover:bg-yellow-100 transition-colors duration-300">
+                    <div className="p-3 bg-yellow-50 rounded-xl ">
                       <Clock className="w-6 h-6 text-yellow-600" />
                     </div>
                     <div>
                       <p className="text-sm text-yellow-600 font-medium">
                         Time
                       </p>
-                      <span className="font-semibold text-lg">4:00 PM</span>
+                      <span className="font-semibold text-2xl">4:00 PM</span>
                     </div>
-                  </div>
-
-                  <div className="flex items-center gap-4 text-slate-700 group">
                     <div className="p-3 bg-yellow-50 rounded-xl group-hover:bg-yellow-100 transition-colors duration-300">
                       <MapPin className="w-6 h-6 text-yellow-600" />
                     </div>
@@ -97,7 +160,7 @@ const Nikkah = () => {
                       <p className="text-sm text-yellow-600 font-medium">
                         Location
                       </p>
-                      <p className="font-semibold text-lg">1 Marina Road</p>
+                      <p className="font-semibold text-2xl">1 Marina Road</p>
                       <p className="font-semibold text-lg">
                         Flushing, NY 11368
                       </p>
@@ -128,6 +191,7 @@ const Nikkah = () => {
             </div>
           </div>
         </div>
+        <WeddingTimeline title="Nikkah Timeline" events={nikkahEvents} />
       </div>
     </>
   );

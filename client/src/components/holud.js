@@ -5,6 +5,16 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import holudbg from "../assets/holudbg.png";
 import { ChevronRight } from "lucide-react";
 import Flowerpattern from "../assets/flowerpattern";
+import WeddingTimeline from "./timeline";
+import { GiDiamondRing } from "react-icons/gi";
+import {
+  GlassWater,
+  UtensilsCrossed,
+  Mic2,
+  Cake,
+  Music,
+  PartyPopper,
+} from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
@@ -13,6 +23,16 @@ const Holud = () => {
   const sectionRef = useRef(null);
   const topLeftFlowerRef = useRef(null);
   const bottomRightFlowerRef = useRef(null);
+
+  const holudEvents = [
+    { time: "4:00 PM", title: "CEREMONY", Icon: GiDiamondRing },
+    { time: "5:00 PM", title: "DRINKS", Icon: GlassWater },
+    { time: "6:00 PM", title: "DINNER", Icon: UtensilsCrossed },
+    { time: "7:00 PM", title: "SPEECHES", Icon: Mic2 },
+    { time: "8:00 PM", title: "CAKE", Icon: Cake },
+    { time: "8:30 PM", title: "DANCING", Icon: Music },
+    { time: "9:30 PM", title: "FAREWELL", Icon: PartyPopper },
+  ];
 
   useGSAP(() => {
     gsap.fromTo(
@@ -96,6 +116,7 @@ const Holud = () => {
             strokeWidth={2.5}
           />
         </button>
+        <WeddingTimeline title="Holud Timeline" events={holudEvents} />
       </div>
     </div>
   );

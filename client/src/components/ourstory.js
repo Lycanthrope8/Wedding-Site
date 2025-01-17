@@ -150,13 +150,14 @@ const Ourstory = () => {
 
           gsap.to(leaves, {
             scale: 1,
-            stagger: 0.1,
+            stagger: 0.2,
             scrollTrigger: {
               trigger: mufti.current,
               start: "top center",
               end: "top center",
               scrub: 1,
               immediateRender: false,
+              toggleActions: "play none none none",
             },
           });
         },
@@ -174,7 +175,7 @@ const Ourstory = () => {
           <div className="flex items-center justify-center gap-3">
             <div className="hidden lg:block h-px w-16 bg-yellow-600/50" />
             <Sparkles className="hidden lg:block text-yellow-600 size-4" />
-            <h1 className="text-yellow-600 font-bold text-lg lg:text-2xl">
+            <h1 className="text-yellow-600 font-bold text-lg lg:text-2xl font-sans">
               بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِي
             </h1>
             <Sparkles className="hidden lg:block text-yellow-600 size-4" />
@@ -297,7 +298,7 @@ const Ourstory = () => {
             </div>
             <div className="bg-zinc-800 hidden lg:block w-0.5 h-1/2 m-auto col-span-1"></div>
             <div className="flex flex-col items-center justify-center space-y-8 p-4 lg:p-16 col-span-2">
-              <p className="text-center text-base lg:text-xl text-gray-700 text-pretty font-lugarismo">
+              <p className="text-center text-base lg:text-xl text-gray-700 text-pretty font-poppins">
                 Sometimes, the most beautiful love stories are the ones crafted
                 by fate. As soon as our paths crossed, time seemed to stop. It
                 was as if fate had stitched our meeting into the very fabric of
@@ -306,7 +307,7 @@ const Ourstory = () => {
                 Every shared laugh, stolen look, and deep talk has woven our
                 love tale.
               </p>
-              <p className="text-center text-base lg:text-xl text-gray-700 text-pretty font-lugrasimo">
+              <p className="text-center text-base lg:text-xl text-gray-700 text-pretty font-poppins">
                 Every second we spend together feels like a gift we hold close
                 to our hearts. Our love gets stronger every day, and we're
                 excited about all the things that could happen on this journey

@@ -3,7 +3,7 @@ import Lenis from "lenis";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import palki from "./assets/palki.png";
+import palki from "./assets/palki.webp";
 import Nikkah from "./components/nikkah";
 import Holud from "./components/holud";
 import Gifts from "./components/gifts";

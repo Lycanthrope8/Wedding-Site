@@ -1,4 +1,4 @@
-const flowerpattern = () => {
+const flowerPattern = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -28,4 +28,4 @@ const flowerpattern = () => {
   );
 };
 
-export default flowerpattern;
+export default flowerPattern;

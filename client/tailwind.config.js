@@ -15,6 +15,7 @@ module.exports = {
       },
       backgroundImage: {
         roundBorder: "url('../src/assets/round-frame.png')",
+        flowerpattern: "url('../src/assets/flowerpattern.png')",
       },
     },
     plugins: [],

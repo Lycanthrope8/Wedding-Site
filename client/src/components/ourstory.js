@@ -1,4 +1,4 @@
-import React from "react";
+import { useRef, useEffect } from "react";
 import corner3 from "../assets/corner3.png";
 import couplePic from "../assets/muftibhaiyamomoapu.jpeg";
 import { gsap } from "gsap";
@@ -10,10 +10,14 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
 
 const Ourstory = () => {
-  const sectionRef = React.useRef(null);
-  const mufti = React.useRef(null);
-  const weds = React.useRef(null);
-  const momo = React.useRef(null);
+  const sectionRef = useRef(null);
+  const mufti = useRef(null);
+  const weds = useRef(null);
+  const momo = useRef(null);
+
+  const images = require.context("../assets/leaves", true);
+
+  const imageList = images.keys().map((key) => images(key));
 
   const getResponsiveValues = () => {
     const width = window.innerWidth;
@@ -37,14 +41,14 @@ const Ourstory = () => {
       };
     } else {
       return {
-        mufti: { x: 170, y: 300 },
-        weds: { y: 307 },
-        momo: { x: -155, y: 332 },
+        mufti: { x: 170, y: 312 },
+        weds: { y: 320 },
+        momo: { x: -155, y: 345 },
       };
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
       const values = getResponsiveValues();
       gsap.set(mufti.current, {
@@ -155,7 +159,7 @@ const Ourstory = () => {
           className="absolute top-100 right-0 size-24 lg:size-48 rotate-90"
         />
         <div
-          className="flex items-center justify-center gap-2 lg:gap-4 pt-24 lg:pt-32"
+          className="flex items-center justify-center gap-2 lg:gap-4 pt-20 lg:pt-28"
           ref={sectionRef}
         >
           <h1
@@ -177,21 +181,99 @@ const Ourstory = () => {
             Momo
           </h1>
         </div>
-        <div className="flex flex-col items-center mt-12 space-y-6 lg:mt-24">
-          <img
-            src={couplePic}
-            alt="Couple"
-            className="rounded-lg shadow-lg w-3/4 lg:w-1/2"
-          />
-          <p className="text-center text-base lg:text-lg text-gray-700 px-4 lg:px-32">
-            It all started with a shared smile that blossomed into a journey of
-            love and companionship. A story destined to be cherished for a
-            lifetime.
-          </p>
-          <p className="text-center text-base lg:text-lg text-gray-700 px-4 lg:px-32">
-            Together, we embark on a path filled with dreams, laughter, and
-            countless adventures, forever grateful for the bond that unites us.
-          </p>
+        <div className="flex flex-col items-center mt-12 space-y-6 lg:mt-8">
+          <h1 className="text-2xl lg:text-4xl text-gray-700 font-bold">
+            Our Story
+          </h1>
+          <div className="grid grid-cols-5 w-full">
+            <div className="w-3/5 mx-auto col-span-2">
+              <div
+                className="rounded-full p-1.5 z-20"
+                style={{
+                  background:
+                    "linear-gradient(to bottom, #DA9B61, transparent 60%)",
+                }}
+              >
+                <div className="relative flex items-center justify-center z-[-1]">
+                  <img
+                    src={imageList[0]}
+                    alt="Leaves"
+                    className="w-40 absolute top-20 -left-20 rotate-45"
+                  />
+                  <img
+                    src={imageList[1]}
+                    alt="Leaves"
+                    className="w-16 absolute top-10 -right-5"
+                  />
+                  <img
+                    src={imageList[2]}
+                    alt="Leaves"
+                    className="w-36 absolute top-80 -right-16 rotate-35"
+                  />
+                  <img
+                    src={imageList[3]}
+                    alt="Leaves"
+                    className="w-28 absolute -top-5 right-5"
+                  />
+                  <img
+                    src={imageList[4]}
+                    alt="Leaves"
+                    className="w-36 absolute top-40 -left-20"
+                  />
+                  <img
+                    src={imageList[5]}
+                    alt="Leaves"
+                    className="w-16 absolute top-0 left-0"
+                  />
+                  <img
+                    src={imageList[6]}
+                    alt="Leaves"
+                    className="w-32 absolute top-32 -right-20"
+                  />
+                  <img
+                    src={imageList[7]}
+                    alt="Leaves"
+                    className="w-40 absolute -top-12 left-24 "
+                  />
+                </div>
+                <div
+                  className="rounded-full z-20"
+                  style={{
+                    backgroundColor: "#DFDECB",
+                    padding: "8px",
+                  }}
+                >
+                  <img
+                    src={couplePic}
+                    alt="Couple"
+                    className="rounded-full w-full h-full z-20"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="bg-zinc-800 hidden lg:block w-0.5 h-1/2 m-auto col-span-1"></div>
+            <div className="flex flex-col items-center justify-center space-y-8 p-4 lg:p-16 col-span-2">
+              <p className="text-center text-base lg:text-2xl text-gray-700">
+                Sometimes, the most beautiful love stories are the ones crafted
+                by fate. As soon as our paths crossed, time seemed to stop. It
+                was as if fate had stitched our meeting into the very fabric of
+                time. It all started in the most traditional way: two
+                individuals met in a sea of people and opened up a conversation.
+                Every shared laugh, stolen look, and deep talk has woven our
+                love tale.
+              </p>
+              <p className="text-center text-base lg:text-2xl text-gray-700">
+                Every second we spend together feels like a gift we hold close
+                to our hearts. Our love gets stronger every day, and we're
+                excited about all the things that could happen on this journey
+                together. We're not just partners; we're also those with dreams
+                who are walking hand-in-hand toward a future full of love and
+                excitement. Let's enjoy this amazing relationship and every
+                lovely moment we share, knowing this is merely the beginning of
+                our forever.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </>

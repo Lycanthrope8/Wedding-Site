@@ -14,6 +14,15 @@ const Ourstory = () => {
   const mufti = useRef(null);
   const weds = useRef(null);
   const momo = useRef(null);
+  const leavesdiv = useRef(null);
+  const leaf1 = useRef(null);
+  const leaf2 = useRef(null);
+  const leaf3 = useRef(null);
+  const leaf4 = useRef(null);
+  const leaf5 = useRef(null);
+  const leaf6 = useRef(null);
+  const leaf7 = useRef(null);
+  const leaf8 = useRef(null);
 
   const images = require.context("../assets/leaves", true);
 
@@ -127,6 +136,30 @@ const Ourstory = () => {
           end: "top top",
           scrub: 1,
         },
+        onComplete: () => {
+          const leaves = gsap.utils.toArray([
+            leaf1.current,
+            leaf2.current,
+            leaf3.current,
+            leaf4.current,
+            leaf5.current,
+            leaf6.current,
+            leaf7.current,
+            leaf8.current,
+          ]);
+
+          gsap.to(leaves, {
+            scale: 1,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: mufti.current,
+              start: "top center",
+              end: "top center",
+              scrub: 1,
+              immediateRender: false,
+            },
+          });
+        },
       }
     );
   });
@@ -194,46 +227,57 @@ const Ourstory = () => {
                     "linear-gradient(to bottom, #DA9B61, transparent 60%)",
                 }}
               >
-                <div className="relative flex items-center justify-center z-[-1]">
+                <div
+                  className="relative flex items-center justify-center z-[-1]"
+                  ref={leavesdiv}
+                >
                   <img
                     src={imageList[0]}
                     alt="Leaves"
-                    className="w-40 absolute top-20 -left-20 rotate-45"
+                    className="w-40 absolute top-24 -left-24 rotate-45 origin-bottom scale-0"
+                    ref={leaf1}
                   />
                   <img
                     src={imageList[1]}
                     alt="Leaves"
-                    className="w-16 absolute top-10 -right-5"
+                    className="w-16 absolute top-10 -right-5 origin-bottom scale-0"
+                    ref={leaf2}
                   />
                   <img
                     src={imageList[2]}
                     alt="Leaves"
-                    className="w-36 absolute top-80 -right-16 rotate-35"
+                    className="w-36 absolute top-80 -right-16 rotate-35 origin-bottom scale-0"
+                    ref={leaf3}
                   />
                   <img
                     src={imageList[3]}
                     alt="Leaves"
-                    className="w-28 absolute -top-5 right-5"
+                    className="w-28 absolute -top-10 right-10 origin-bottom scale-0"
+                    ref={leaf4}
                   />
                   <img
                     src={imageList[4]}
                     alt="Leaves"
-                    className="w-36 absolute top-40 -left-20"
+                    className="w-36 absolute top-40 -left-20 origin-bottom scale-0"
+                    ref={leaf5}
                   />
                   <img
                     src={imageList[5]}
                     alt="Leaves"
-                    className="w-16 absolute top-0 left-0"
+                    className="w-16 absolute top-0 left-0 origin-bottom scale-0"
+                    ref={leaf6}
                   />
                   <img
                     src={imageList[6]}
                     alt="Leaves"
-                    className="w-32 absolute top-32 -right-20"
+                    className="w-32 absolute top-32 -right-20 origin-bottom scale-0"
+                    ref={leaf7}
                   />
                   <img
                     src={imageList[7]}
                     alt="Leaves"
-                    className="w-40 absolute -top-12 left-24 "
+                    className="w-40 absolute -top-12 left-24 origin-bottom scale-0"
+                    ref={leaf8}
                   />
                 </div>
                 <div
@@ -253,7 +297,7 @@ const Ourstory = () => {
             </div>
             <div className="bg-zinc-800 hidden lg:block w-0.5 h-1/2 m-auto col-span-1"></div>
             <div className="flex flex-col items-center justify-center space-y-8 p-4 lg:p-16 col-span-2">
-              <p className="text-center text-base lg:text-2xl text-gray-700">
+              <p className="text-center text-base lg:text-xl text-gray-700 text-pretty font-lugarismo">
                 Sometimes, the most beautiful love stories are the ones crafted
                 by fate. As soon as our paths crossed, time seemed to stop. It
                 was as if fate had stitched our meeting into the very fabric of
@@ -262,7 +306,7 @@ const Ourstory = () => {
                 Every shared laugh, stolen look, and deep talk has woven our
                 love tale.
               </p>
-              <p className="text-center text-base lg:text-2xl text-gray-700">
+              <p className="text-center text-base lg:text-xl text-gray-700 text-pretty font-lugrasimo">
                 Every second we spend together feels like a gift we hold close
                 to our hearts. Our love gets stronger every day, and we're
                 excited about all the things that could happen on this journey

@@ -9,6 +9,7 @@ module.exports = {
         passionsConflict: ["Passions Conflict", "cursive"],
         notoKufi: ["Noto Kufi Arabic", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
+        lugrasimo: ["Lugrasimo", "serif"],
       },
       colors: {
         "custom-golden": "#DA9B61",

@@ -19,9 +19,7 @@ export default function WeddingTimeline({ title, events }) {
             },
           }}
         />
-        <div
-          className={`flex flex-col sm:grid sm:grid-cols-${events.length} gap-8 sm:gap-4`}
-        >
+        <div className="flex flex-col sm:flex-row sm:justify-between gap-8 sm:gap-4">
           {events.map((event, index) => (
             <div
               key={index}

@@ -4,10 +4,20 @@ import { Calendar, ChevronDown, Clock, Heart, MapPin } from "lucide-react";
 const VenueLocation = ({ ceremony, date, time }) => {
   const [isCalendarDropdownOpen, setIsCalendarDropdownOpen] = useState(false);
 
+  const [hourMinutes, period] = time.split(" ");
+  let [hours, minutes] = hourMinutes.split(":").map(Number);
+
+  if (period === "PM" && hours !== 12) {
+    hours += 12;
+  } else if (period === "AM" && hours === 12) {
+    hours = 0;
+  }
   const saveTheDate = (calendarType) => {
     const event = {
       text: `Mufti & Momo's ${ceremony} Ceremony`,
-      dates: `202502${date}T160000Z/20250219T210000Z`,
+      dates: `202502${date}T${hours.toString().padStart(2, "0")}${minutes
+        .toString()
+        .padStart(2, "0")}00Z/20250219T210000Z`,
       details: `Join us for our ${ceremony} ceremony!`,
       location: "1 Marina Rd, Flushing, NY 11368",
     };
@@ -24,8 +34,8 @@ const VenueLocation = ({ ceremony, date, time }) => {
         VERSION:2.0
         CALSCALE:GREGORIAN
         BEGIN:VEVENT
-        DTSTART:20250219T160000Z
-        DTEND:20250219T210000Z
+        DTSTART:202502${date}T160000Z
+        DTEND:202502${date}T210000Z
         SUMMARY:${event.text}
         DESCRIPTION:${event.details}
         LOCATION:${event.location}
@@ -50,9 +60,9 @@ const VenueLocation = ({ ceremony, date, time }) => {
         </h2>
 
         <div className="flex flex-col lg:flex-row gap-8 sm:gap-10 font-poppins">
-          <div className="w-full lg:w-1/2 bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-white/20 transform hover:scale-102 transition-all duration-300">
+          <div className="w-full lg:w-1/2 bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-sm p-6 sm:p-4 rounded-2xl border border-white/20 transform hover:scale-102 transition-all duration-300">
             <div className="relative flex flex-col items-center justify-center space-y-6">
-              <Heart className="absolute -top-10 right-0 w-8 h-8 text-custom-golden opacity-50" />
+              <Heart className="absolute -top-6 right-0 w-8 h-8 text-custom-golden opacity-50" />
 
               <div className="text-center">
                 <h3 className="text-xl sm:text-3xl font-bold text-custom-golden mb-2">
@@ -70,7 +80,7 @@ const VenueLocation = ({ ceremony, date, time }) => {
                   onClick={() =>
                     setIsCalendarDropdownOpen(!isCalendarDropdownOpen)
                   }
-                  className="flex items-center gap-2 px-4 py-2 bg-custom-golden text-white rounded-lg hover:bg-yellow-700 transition-colors duration-300"
+                  className="flex items-center gap-2 px-4 py-2 bg-custom-golden text-white rounded-lg hover:bg-custom-golden/70 transition-colors duration-300"
                 >
                   <Calendar className="w-5 h-5" />
                   <span>Add to Calendar</span>
@@ -133,7 +143,7 @@ const VenueLocation = ({ ceremony, date, time }) => {
                 href="https://maps.google.com/maps?q=1+Marina+Rd,+Flushing,+NY+11368,+USA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-4 bg-custom-golden text-white px-6 py-3 rounded-xl hover:bg-yellow-700 transition-all duration-300 font-medium text-base shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                className="inline-block mt-4 bg-custom-golden text-white px-6 py-3 rounded-xl hover:bg-custom-golden/70 transition-all duration-300 font-medium text-base shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
               >
                 Get Directions
               </a>

@@ -1,20 +1,18 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import holudbg from "../assets/holudbg.webp";
 import Flowerpattern from "../assets/flowerpattern";
 import WeddingTimeline from "./timeline";
-import { GiDiamondRing } from "react-icons/gi";
 import {
   ArrowRight,
-  GlassWater,
   UtensilsCrossed,
-  Mic2,
-  Cake,
   Music,
   PartyPopper,
+  Sandwich,
 } from "lucide-react";
+import GateComponent from "../assets/gateComponent";
 import VenueLocation from "./VenueLocation";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -26,13 +24,19 @@ const Holud = () => {
   const bottomRightFlowerRef = useRef(null);
 
   const holudEvents = [
-    { time: "4:00 PM", title: "CEREMONY", Icon: GiDiamondRing },
-    { time: "5:00 PM", title: "DRINKS", Icon: GlassWater },
-    { time: "6:00 PM", title: "DINNER", Icon: UtensilsCrossed },
-    { time: "7:00 PM", title: "SPEECHES", Icon: Mic2 },
-    { time: "8:00 PM", title: "CAKE", Icon: Cake },
-    { time: "8:30 PM", title: "DANCING", Icon: Music },
-    { time: "9:30 PM", title: "FAREWELL", Icon: PartyPopper },
+    { time: "7:00 - 7:30 PM", title: "SNACKS", Icon: Sandwich },
+    {
+      time: "7:30 - 8:30 PM",
+      title: "ENTRY & HOLUD TOUCH",
+      Icon: GateComponent,
+    },
+    { time: "8:30 - 9:30 PM", title: "MUSIC & DANCE", Icon: Music },
+    {
+      time: "9:30 - 11:00 PM",
+      title: "DINNER & SWEETS",
+      Icon: UtensilsCrossed,
+    },
+    { time: "11:30 PM", title: "FAREWELL", Icon: PartyPopper },
   ];
 
   useGSAP(() => {
@@ -75,6 +79,7 @@ const Holud = () => {
       <Flowerpattern />
       <img
         id="holudleaf1"
+        s
         ref={topLeftFlowerRef}
         src={holudbg || "/placeholder.svg"}
         alt="Holud Background"
@@ -102,7 +107,7 @@ const Holud = () => {
             strokeWidth={2.5}
           />
         </button>
-        <VenueLocation ceremony="Holud" date="19" time="4:00 PM" />
+        <VenueLocation ceremony="Holud" date="21" time="7:00 PM" />
 
         <WeddingTimeline title="Holud Timeline" events={holudEvents} />
       </div>

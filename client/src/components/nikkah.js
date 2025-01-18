@@ -6,16 +6,15 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import WeddingTimeline from "./timeline";
 import PipesPattern from "../assets/pipespattern";
-import { GiDiamondRing } from "react-icons/gi";
 import {
   ArrowRight,
-  GlassWater,
-  UtensilsCrossed,
   Mic2,
   Cake,
-  Music,
   PartyPopper,
+  Sandwich,
+  Camera,
 } from "lucide-react";
+import GateComponent from "../assets/gateComponent";
 import VenueLocation from "./VenueLocation";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -23,13 +22,16 @@ gsap.registerPlugin(useGSAP);
 
 const Nikkah = () => {
   const nikkahEvents = [
-    { time: "4:00 PM", title: "CEREMONY", Icon: GiDiamondRing },
-    { time: "5:00 PM", title: "DRINKS", Icon: GlassWater },
-    { time: "6:00 PM", title: "DINNER", Icon: UtensilsCrossed },
-    { time: "7:00 PM", title: "SPEECHES", Icon: Mic2 },
-    { time: "8:00 PM", title: "CAKE", Icon: Cake },
-    { time: "8:30 PM", title: "DANCING", Icon: Music },
-    { time: "9:30 PM", title: "FAREWELL", Icon: PartyPopper },
+    { time: "12:00 - 12:30 PM", title: "SNACKS", Icon: Sandwich },
+    { time: "12:30 - 1:30 PM", title: "ENTRY", Icon: GateComponent },
+    {
+      time: "1:30 - 2:30 PM",
+      title: "SPEECH, MUSIC & DANCE",
+      Icon: Mic2,
+    },
+    { time: "2:30 - 3:30 PM", title: "CAKE & LUNCH", Icon: Cake },
+    { time: "3:30 - 4:30 PM", title: "PHOTOSHOOT & GAMES", Icon: Camera },
+    { time: "4:30 PM", title: "FAREWELL", Icon: PartyPopper },
   ];
 
   return (
@@ -73,11 +75,7 @@ const Nikkah = () => {
         </div>
 
         <PipesPattern />
-        <VenueLocation
-          ceremony="Nikkah"
-          date="20"
-          time="4:00 PM"
-        />
+        <VenueLocation ceremony="Nikkah" date="23" time="12:00 PM" />
         <WeddingTimeline title="Nikkah Timeline" events={nikkahEvents} />
       </div>
     </>

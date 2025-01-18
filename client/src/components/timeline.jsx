@@ -2,7 +2,7 @@ import React from "react";
 
 export default function WeddingTimeline({ title, events }) {
   return (
-    <div className="max-w-6xl mx-auto mt-12 md:mt-4 px-4">
+    <div className="w-full max-w-6xl mx-auto mt-12 md:mt-4 px-4">
       <h1 className="text-center font-passionsConflict text-5xl sm:text-6xl md:text-7xl text-yellow-600 mb-12 sm:mb-16 md:mb-20">
         {title}
       </h1>
@@ -31,11 +31,11 @@ export default function WeddingTimeline({ title, events }) {
                 </div>
               </div>
               <div className="flex flex-col items-start sm:items-center flex-1 sm:flex-none">
-                <h3 className="text-sm font-medium tracking-wider mb-1 sm:mb-3 text-slate-700">
+                <h3 className="relative text-sm font-medium tracking-wider mb-1 sm:mb-3 text-slate-700">
                   {event.title}
                 </h3>
                 <div className="hidden sm:block h-5 w-[1px] bg-yellow-600 mb-3" />
-                <span className="text-sm font-semibold bg-gradient-to-br from-yellow-600 to-yellow-700 text-transparent bg-clip-text">
+                <span className="text- font-semibold bg-gradient-to-br from-yellow-600 to-yellow-700 text-transparent bg-clip-text">
                   {event.time}
                 </span>
               </div>

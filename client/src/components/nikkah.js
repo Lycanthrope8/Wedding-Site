@@ -1,5 +1,5 @@
 import React from "react";
-import couple from "../assets/couple.jpg";
+import couple from "../assets/couple2.jpg";
 import heroFlower from "../assets/heroflower.webp";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -56,7 +56,7 @@ const Nikkah = () => {
             <img
               src={couple || "/placeholder.svg"}
               alt="Couple"
-              className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 object-cover mix-blend-multiply z-10"
+              className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 object-cover mix-blend-multiply z-10 rounded-lg"
             />
             <div className="flex flex-col items-center justify-center gap-6 sm:gap-8">
               <h1 className="text-xl sm:text-2xl lg:text-3xl text-slate-700 font-poppins font-semibold text-center text-pretty">

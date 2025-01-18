@@ -169,7 +169,7 @@ const Ourstory = () => {
     <>
       <div
         id="ourstory"
-        className="w-full min-h-screen pb-36 px-4 sm:px-6 lg:px-0 bg-gradient-to-b from-[#dad8c9] from-60% to-zinc-100"
+        className="w-full min-h-screen pb-20 lg:pb-36 px-4 sm:px-6 lg:px-0 bg-gradient-to-b from-[#dad8c9] from-60% to-zinc-100"
       >
         <div className="absolute left-1/2 -translate-x-1/2">
           <div className="flex items-center justify-center gap-3">

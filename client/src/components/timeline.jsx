@@ -2,8 +2,8 @@ import React from "react";
 
 export default function WeddingTimeline({ title, events }) {
   return (
-    <div className="w-full max-w-6xl mx-auto mt-12 md:mt-4 px-4">
-      <h1 className="text-center font-passionsConflict text-5xl sm:text-6xl md:text-7xl text-yellow-600 mb-12 sm:mb-16 md:mb-20">
+    <div className="w-full max-w-6xl mx-auto mt-8 md:mt-12 px-4 z-10">
+      <h1 className="text-center font-passionsConflict text-5xl sm:text-6xl md:text-7xl text-yellow-600 mb-4 md:mb-8">
         {title}
       </h1>
 

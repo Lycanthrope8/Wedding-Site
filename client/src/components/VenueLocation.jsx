@@ -15,35 +15,64 @@ const VenueLocation = ({ ceremony, date, time }) => {
   const saveTheDate = (calendarType) => {
     const event = {
       text: `Mufti & Momo's ${ceremony} Ceremony`,
-      dates: `202502${date}T${hours.toString().padStart(2, "0")}${minutes
+      startDate: `202502${date}T${hours.toString().padStart(2, "0")}${minutes
         .toString()
-        .padStart(2, "0")}00Z/20250219T210000Z`,
+        .padStart(2, "0")}00`,
+      endDate: `202502${date}T230000`,
       details: `Join us for our ${ceremony} ceremony!`,
-      location: "1 Marina Rd, Flushing, NY 11368",
+      location: "World's Fair Marina Banquet",
     };
 
     if (calendarType === "google") {
       const googleCalendarLink = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
         event.text
-      )}&dates=${event.dates}&details=${encodeURIComponent(
+      )}&dates=${event.startDate}/${event.endDate}&details=${encodeURIComponent(
         event.details
       )}&location=${encodeURIComponent(event.location)}&sf=true&output=xml`;
       window.open(googleCalendarLink, "_blank");
     } else if (calendarType === "apple") {
-      const appleCalendarFile = `BEGIN:VCALENDAR
-        VERSION:2.0
-        CALSCALE:GREGORIAN
-        BEGIN:VEVENT
-        DTSTART:202502${date}T160000Z
-        DTEND:202502${date}T210000Z
-        SUMMARY:${event.text}
-        DESCRIPTION:${event.details}
-        LOCATION:${event.location}
-        END:VEVENT
-        END:VCALENDAR`;
+      const now = new Date();
+      const icsContent = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//MuftiAndMomoWedding//EN",
+        "CALSCALE:GREGORIAN",
+        "BEGIN:VTIMEZONE",
+        "TZID:America/New_York",
+        "LAST-MODIFIED:20240422T053450Z",
+        "TZURL:https://www.tzurl.org/zoneinfo-outlook/America/New_York",
+        "X-LIC-LOCATION:America/New_York",
+        "BEGIN:DAYLIGHT",
+        "TZNAME:EDT",
+        "TZOFFSETFROM:-0500",
+        "TZOFFSETTO:-0400",
+        "DTSTART:19700308T020000",
+        "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU",
+        "END:DAYLIGHT",
+        "BEGIN:STANDARD",
+        "TZNAME:EST",
+        "TZOFFSETFROM:-0400",
+        "TZOFFSETTO:-0500",
+        "DTSTART:19701101T020000",
+        "RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU",
+        "END:STANDARD",
+        "END:VTIMEZONE",
+        "BEGIN:VEVENT",
+        `DTSTAMP:${now.toISOString().replace(/[-:]/g, "").split(".")[0]}Z`,
+        `UID:${now.getTime()}-${Math.floor(
+          Math.random() * 100000
+        )}@muftiandmomo.com`,
+        `DTSTART;TZID=America/New_York:${event.startDate}`,
+        `DTEND;TZID=America/New_York:${event.endDate}`,
+        `SUMMARY:${event.text}`,
+        `DESCRIPTION:${event.details}`,
+        `LOCATION:${event.location}`,
+        "END:VEVENT",
+        "END:VCALENDAR",
+      ].join("\r\n");
 
       const element = document.createElement("a");
-      const file = new Blob([appleCalendarFile], { type: "text/calendar" });
+      const file = new Blob([icsContent], { type: "text/calendar" });
       element.href = URL.createObjectURL(file);
       element.download = `${ceremony}-ceremony.ics`;
       document.body.appendChild(element);
@@ -52,9 +81,10 @@ const VenueLocation = ({ ceremony, date, time }) => {
     }
     setIsCalendarDropdownOpen(false);
   };
+
   return (
     <>
-      <div className="w-full mt-12 sm:mt-16 lg:mt-20 px-4 sm:px-8 lg:px-12">
+      <div className="w-full mt-8 lg:mt-12 px-4 sm:px-8 lg:px-12 z-10">
         <h2 className="text-center text-4xl sm:text-5xl lg:text-7xl text-yellow-600 font-passionsConflict mb-6 sm:mb-8">
           Venue Location
         </h2>
@@ -133,14 +163,17 @@ const VenueLocation = ({ ceremony, date, time }) => {
                     <p className="text-sm text-custom-golden font-medium">
                       Location
                     </p>
-                    <p className="font-semibold text-xl">1 Marina Road</p>
-                    <p className="font-semibold text-lg">Flushing, NY 11368</p>
+                    {/* <p className="font-semibold text-xl">1 Marina Road</p>
+                    <p className="font-semibold text-lg">Flushing, NY 11368</p> */}
+                    <p className="font-semibold text-lg">
+                      World's Fair Marina Banquet
+                    </p>
                   </div>
                 </div>
               </div>
 
               <a
-                href="https://maps.google.com/maps?q=1+Marina+Rd,+Flushing,+NY+11368,+USA"
+                href="https://maps.app.goo.gl/qpQnAoa8WjRWJ2bz7"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-4 bg-custom-golden text-white px-6 py-3 rounded-xl hover:bg-custom-golden/70 transition-all duration-300 font-medium text-base shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
@@ -153,7 +186,7 @@ const VenueLocation = ({ ceremony, date, time }) => {
           <div className="w-full lg:w-1/2 h-[300px] sm:h-[400px] rounded-2xl overflow-hidden">
             <iframe
               title="Venue Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2414477099906!2d-73.86035232346177!3d40.76121213912591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25fe93afd0c2d%3A0xa1de5312b54aa2bc!2s1%20Marina%20Rd%2C%20Flushing%2C%20NY%2011368!5e0!3m2!1sen!2sus!4v1704644019346!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.0364060556194!2d-73.857806!3d40.761224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25fe6444e4f2f%3A0x6288db159804b66e!2sWorld&#39;s%20Fair%20Marina%20Banquet!5e0!3m2!1sen!2sbd!4v1737217282791!5m2!1sen!2sbd"
               className="w-full h-full rounded-2xl border-0"
               allowFullScreen=""
               loading="lazy"

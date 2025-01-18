@@ -94,7 +94,7 @@ function App() {
           end: "top+=80% top",
           scrub: 1,
           ease: "power1.inOut",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
       }
     );

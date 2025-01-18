@@ -32,27 +32,27 @@ const Ourstory = () => {
     const width = window.innerWidth;
     if (width < 320) {
       return {
-        mufti: { scale: 0.5, x: 100, y: 100 },
-        weds: { y: 107 },
-        momo: { scale: 0.5, x: -90, y: 132 },
+        mufti: { scale: 0.6, x: 370, y: 100 },
+        weds: { y: 155 },
+        momo: { scale: 0.6, x: -180, y: 190 },
       };
     } else if (width < 640) {
       return {
-        mufti: { scale: 0.6, x: 260, y: 120 },
+        mufti: { scale: 0.6, x: 280, y: 120 },
         weds: { y: 160 },
-        momo: { scale: 0.6, x: -190, y: 190 },
+        momo: { scale: 0.6, x: -180, y: 190 },
       };
     } else if (width < 1024) {
       return {
-        mufti: { scale: 0.8, x: 100, y: 330 },
-        weds: { y: 340 },
-        momo: { scale: 0.8, x: -90, y: 360 },
+        mufti: { scale: 0.7, x: 100, y: 330 },
+        weds: { y: 337 },
+        momo: { scale: 0.7, x: -90, y: 350 },
       };
     } else {
       return {
-        mufti: { x: 170, y: 312 },
-        weds: { y: 320 },
-        momo: { x: -155, y: 345 },
+        mufti: { scale: 0.5, x: 170, y: 316 },
+        weds: { y: 324 },
+        momo: { scale: 0.5, x: -155, y: 348 },
       };
     }
   };

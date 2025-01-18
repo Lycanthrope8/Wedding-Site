@@ -45,7 +45,7 @@ const VenueLocation = ({ ceremony, date, time }) => {
       const element = document.createElement("a");
       const file = new Blob([appleCalendarFile], { type: "text/calendar" });
       element.href = URL.createObjectURL(file);
-      element.download = "holud-ceremony.ics";
+      element.download = `${ceremony}-ceremony.ics`;
       document.body.appendChild(element);
       element.click();
       document.body.removeChild(element);

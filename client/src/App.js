@@ -147,10 +147,10 @@ function App() {
 
         <div ref={nikkahRef}>
           <Ourstory />
-          <Nikkah />
-          <Countdown targetDate="Feb 23, 2025 12:00:00" color="#dad8c9" />
           <Holud />
           <Countdown targetDate="Feb 21, 2025 19:00:00" color="#fde047" />
+          <Nikkah />
+          <Countdown targetDate="Feb 23, 2025 12:00:00" color="#dad8c9" />
           <Gifts id="gifts" />
         </div>
       </div>

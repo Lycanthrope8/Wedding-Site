@@ -12,7 +12,7 @@ import {
   Clock,
   Calendar,
   Heart,
-  ChevronRight,
+  ArrowRight,
   GlassWater,
   UtensilsCrossed,
   Mic2,
@@ -36,9 +36,9 @@ const Nikkah = () => {
   ];
   const saveTheDate = () => {
     const event = {
-      text: "Wedding Ceremony",
+      text: "Mufti & Momo's Wedding Ceremony",
       dates: "20250220T160000Z/20250220T180000Z",
-      details: "Wedding Ceremony",
+      details: "Join us for our special day!",
       location: "1 Marina Rd, Flushing, NY 11368",
     };
 
@@ -81,7 +81,7 @@ const Nikkah = () => {
     <>
       <div
         id="nikkah"
-        className="relative w-full min-h-screen pb-12 px-4 sm:px-6 lg:px-0"
+        className="relative w-full min-h-screen pb-12 px-4 sm:px-6 lg:px-0 bg-gradient-to-b from-zinc-100 to-[#dad8c9]"
       >
         <h2 className="text-center text-slate-700 font-poppins font-semibold text-sm sm:text-base pt-28">
           Join us on this happy beginning of our new life
@@ -102,13 +102,13 @@ const Nikkah = () => {
               className="w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 object-cover mix-blend-multiply z-10"
             />
             <div className="flex flex-col items-center justify-center gap-12">
-              <h1 className="text-xl sm:text-2xl lg:text-4xl text-slate-700 font-poppins font-semibold text-center ">
+              <h1 className="text-xl sm:text-2xl lg:text-4xl text-slate-700 font-poppins font-semibold text-center text-pretty">
                 We're getting married! We request your gracious presence at our
                 Nikkah ceremony!
               </h1>
-              <button className="flex items-center gap-x-4 justify-between px-12 py-4 text-xl bg-custom-golden bg-opacity-80 rounded-lg text-zinc-50 font-medium mt-4 hover:bg-opacity-100 transition-all duration-200">
+              <button className="flex items-center gap-x-4 justify-between px-12 py-4 text-xl bg-custom-golden bg-opacity-80 rounded-full text-zinc-50 font-medium mt-4 hover:bg-opacity-100 transition-all duration-200">
                 RSVP
-                <ChevronRight
+                <ArrowRight
                   className="-mb-0.5 size-6 text-zinc-50"
                   strokeWidth={2.5}
                 />

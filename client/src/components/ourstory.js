@@ -169,7 +169,7 @@ const Ourstory = () => {
     <>
       <div
         id="ourstory"
-        className="w-full min-h-screen pb-12 px-4 sm:px-6 lg:px-0"
+        className="w-full min-h-screen pb-36 px-4 sm:px-6 lg:px-0 bg-gradient-to-b from-[#dad8c9] from-60% to-zinc-100"
       >
         <div className="absolute left-1/2 -translate-x-1/2">
           <div className="flex items-center justify-center gap-3">
@@ -215,11 +215,11 @@ const Ourstory = () => {
             Momo
           </h1>
         </div>
-        <div className="flex flex-col items-center mt-12 space-y-6 lg:mt-8">
-          <h1 className="text-2xl lg:text-4xl text-gray-700 font-bold">
+        <div className="flex flex-col items-center mt-4 space-y-6 lg:mt-8">
+          <h1 className="text-2xl lg:text-4xl text-gray-700 font-semibold font-poppins">
             Our Story
           </h1>
-          <div className="grid grid-cols-5 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-5 w-full">
             <div className="w-3/5 mx-auto col-span-2">
               <div
                 className="rounded-full p-1.5 z-20"
@@ -229,13 +229,13 @@ const Ourstory = () => {
                 }}
               >
                 <div
-                  className="relative flex items-center justify-center z-[-1]"
+                  className="relative hidden lg:flex items-center justify-center z-0"
                   ref={leavesdiv}
                 >
                   <img
                     src={imageList[0]}
                     alt="Leaves"
-                    className="w-40 absolute top-24 -left-24 rotate-45 origin-bottom scale-0"
+                    className="w-40 absolute top-24 -left-24 origin-bottom scale-0"
                     ref={leaf1}
                   />
                   <img
@@ -247,7 +247,7 @@ const Ourstory = () => {
                   <img
                     src={imageList[2]}
                     alt="Leaves"
-                    className="w-36 absolute top-80 -right-16 rotate-35 origin-bottom scale-0"
+                    className="w-36 absolute top-80 -right-16 origin-bottom scale-0"
                     ref={leaf3}
                   />
                   <img
@@ -282,7 +282,7 @@ const Ourstory = () => {
                   />
                 </div>
                 <div
-                  className="rounded-full z-20"
+                  className="relative rounded-full z-20"
                   style={{
                     backgroundColor: "#DFDECB",
                     padding: "8px",
@@ -298,7 +298,7 @@ const Ourstory = () => {
             </div>
             <div className="bg-zinc-800 hidden lg:block w-0.5 h-1/2 m-auto col-span-1"></div>
             <div className="flex flex-col items-center justify-center space-y-8 p-4 lg:p-16 col-span-2">
-              <p className="text-center text-base lg:text-xl text-gray-700 text-pretty font-poppins">
+              <p className="text-center text-sm lg:text-xl text-gray-700 text-pretty font-poppins">
                 Sometimes, the most beautiful love stories are the ones crafted
                 by fate. As soon as our paths crossed, time seemed to stop. It
                 was as if fate had stitched our meeting into the very fabric of
@@ -307,7 +307,7 @@ const Ourstory = () => {
                 Every shared laugh, stolen look, and deep talk has woven our
                 love tale.
               </p>
-              <p className="text-center text-base lg:text-xl text-gray-700 text-pretty font-poppins">
+              <p className="text-center text-sm lg:text-xl text-gray-700 text-pretty font-poppins">
                 Every second we spend together feels like a gift we hold close
                 to our hearts. Our love gets stronger every day, and we're
                 excited about all the things that could happen on this journey

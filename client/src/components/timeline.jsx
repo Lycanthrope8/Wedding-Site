@@ -2,18 +2,18 @@ import React from "react";
 
 export default function WeddingTimeline({ title, events }) {
   return (
-    <div className="max-w-6xl mx-auto mt-8 sm:mt-16 md:mt-20 px-4">
+    <div className="max-w-6xl mx-auto mt-4 px-4">
       <h1 className="text-center font-passionsConflict text-5xl sm:text-6xl md:text-7xl text-yellow-600 mb-12 sm:mb-16 md:mb-20">
         {title}
       </h1>
 
       <div className="relative px-2 sm:px-4 md:px-8">
         <div
-          className="absolute left-8 sm:left-0 sm:right-0 w-[2px] sm:w-auto sm:h-[2px] top-0 sm:top-28 bottom-0 sm:bottom-auto -z-10"
+          className="absolute left-8 sm:left-0 sm:right-0 w-[2px] sm:w-auto sm:h-[2px] top-0 sm:top-28 bottom-0 sm:bottom-auto"
           style={{
             background:
               "linear-gradient(180deg, transparent 0%, #ca8a04 15%, #ca8a04 85%, transparent 100%)",
-            "@media (min-width: 640px)": {
+            "@media (minWidth: 640px)": {
               background:
                 "linear-gradient(90deg, transparent 0%, #ca8a04 15%, #ca8a04 85%, transparent 100%)",
             },

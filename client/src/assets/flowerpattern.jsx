@@ -2,7 +2,7 @@ const flowerPattern = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute top-0 left-0 w-full h-full object-cover z-0 mix-blend-screen"
+      className="absolute top-0 left-0 w-full h-full object-cover z-0 mix-blend-screen opacity-50"
       style={{
         maskImage:
           "linear-gradient(to top, transparent 0%, black 30%, transparent 100%)",

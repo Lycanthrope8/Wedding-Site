@@ -38,15 +38,15 @@ const Ourstory = () => {
       };
     } else if (width < 640) {
       return {
-        mufti: { scale: 0.6, x: 155, y: 130 },
-        weds: { y: 157 },
-        momo: { scale: 0.6, x: -130, y: 180 },
+        mufti: { scale: 0.6, x: 260, y: 120 },
+        weds: { y: 160 },
+        momo: { scale: 0.6, x: -190, y: 190 },
       };
     } else if (width < 1024) {
       return {
-        mufti: { x: 120, y: 200 },
-        weds: { y: 207 },
-        momo: { x: -110, y: 232 },
+        mufti: { scale: 0.8, x: 100, y: 330 },
+        weds: { y: 340 },
+        momo: { scale: 0.8, x: -90, y: 360 },
       };
     } else {
       return {
@@ -86,7 +86,7 @@ const Ourstory = () => {
     gsap.fromTo(
       mufti.current,
       {
-        scale: 0.5,
+        scale: values.mufti.scale,
         x: values.mufti.x,
         y: values.mufti.y,
       },
@@ -122,7 +122,7 @@ const Ourstory = () => {
     gsap.fromTo(
       momo.current,
       {
-        scale: 0.5,
+        scale: values.momo.scale,
         x: values.momo.x,
         y: values.momo.y,
       },

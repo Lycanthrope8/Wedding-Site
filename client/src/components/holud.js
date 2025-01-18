@@ -92,11 +92,11 @@ const Holud = () => {
         alt="Holud Background"
         className="absolute -bottom-20 -right-20 object-contain w-40 h-40 lg:w-96 lg:h-96 z-20 mix-blend-multiply transfrom-origin-bottom-right transition-all duration-1000 ease-in-out"
       />
-      <div className="h-full w-full flex flex-col items-center justify-evenly pt-12 lg:pt-28 z-10">
+      <div className="h-full w-full flex flex-col items-center justify-evenly pt-20 lg:pt-28 z-10">
         <h1 className="text-4xl lg:text-8xl text-custom-golden font-passionsConflict z-10">
           Join us on our Holud ceremony!
         </h1>
-        <p className="text-sm lg:text-3xl text-center px-4 lg:px-20 text-zinc-700 text-balance font-poppins z-10 mt-4 lg:mt-8">
+        <p className="text-sm lg:text-3xl text-center px-4 lg:px-20 text-zinc-700 text-balance font-poppins z-10 mt-2 lg:mt-8">
           Please join us for the Dinner and an evening of Traditional Music and
           Dance to celebrate the Holud Ceremony of Mufti & Momo
         </p>

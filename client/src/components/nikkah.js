@@ -40,7 +40,7 @@ const Nikkah = () => {
         id="nikkah"
         className="relative w-full min-h-screen pb-12 px-4 sm:px-6 lg:px-0 bg-gradient-to-b from-zinc-100 to-[#dad8c9]"
       >
-        <h2 className="text-center text-slate-700 font-poppins font-semibold text-sm sm:text-base pt-8 sm:pt-16 md:pt-28">
+        <h2 className="text-center text-slate-700 font-poppins font-semibold text-sm sm:text-base pt-20 sm:pt-16 md:pt-28">
           Join us on this happy beginning of our new life
         </h2>
 

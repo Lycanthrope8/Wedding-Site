@@ -129,7 +129,7 @@ function App() {
               alt="Palki"
               loading="lazy"
               fetchPriority="high"
-              className="flex w-full h-3/5 object-contain"
+              className="flex w-full h-3/5 object-contain px-2"
             />
             {window.innerWidth < 768 ? (
               <div className="flex flex-col items-center justify-center gap-2 mb-20">

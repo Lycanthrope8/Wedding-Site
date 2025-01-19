@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import corner3 from "../assets/corner3.png";
 import couplePic from "../assets/muftibhaiyamomoapu.jpeg";
 import { gsap } from "gsap";
@@ -28,142 +28,171 @@ const Ourstory = () => {
 
   const imageList = images.keys().map((key) => images(key));
 
-  const getResponsiveValues = () => {
-    const width = window.innerWidth;
-    if (width < 320) {
-      return {
-        mufti: { scale: 0.6, x: 370, y: 100 },
-        weds: { y: 155 },
-        momo: { scale: 0.6, x: -180, y: 190 },
-      };
-    } else if (width < 640) {
-      return {
-        mufti: { scale: 0.6, x: 280, y: 120 },
-        weds: { y: 160 },
-        momo: { scale: 0.6, x: -180, y: 190 },
-      };
-    } else if (width < 1024) {
-      return {
-        mufti: { scale: 0.7, x: 100, y: 330 },
-        weds: { y: 337 },
-        momo: { scale: 0.7, x: -90, y: 350 },
-      };
-    } else {
-      return {
-        mufti: { scale: 0.5, x: 170, y: 316 },
-        weds: { y: 324 },
-        momo: { scale: 0.5, x: -155, y: 348 },
-      };
-    }
-  };
-
-  useEffect(() => {
-    const handleResize = () => {
-      const values = getResponsiveValues();
-      gsap.set(mufti.current, {
-        scale: values.mufti.scale,
-        x: values.mufti.x,
-        y: values.mufti.y,
-      });
-      gsap.set(weds.current, {
-        scale: 0.5,
-        y: values.weds.y,
-      });
-      gsap.set(momo.current, {
-        scale: values.momo.scale,
-        x: values.momo.x,
-        y: values.momo.y,
-      });
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const getResponsiveValues = () => ({
+    "(max-width: 320px)": {
+      mufti: { scale: 0.6, x: 370, y: 100 },
+      weds: { scale: 0.8, y: 155 },
+      momo: { scale: 0.6, x: -180, y: 190 },
+    },
+    "(min-width: 321px) and (max-width: 375px)": {
+      mufti: { scale: 0.6, x: 320, y: 110 },
+      weds: { scale: 0.8, y: 158 },
+      momo: { scale: 0.6, x: -170, y: 190 },
+    },
+    "(min-width: 376px) and (max-width: 390px)": {
+      mufti: { scale: 0.6, x: 270, y: 115 },
+      weds: { scale: 3, y: 180 },
+      momo: { scale: 0.6, x: -160, y: 190 },
+    },
+    "(min-width: 391px) and (max-width: 393px)": {
+      mufti: { scale: 0.6, x: 290, y: 116 },
+      weds: { scale: 3, y: 180 },
+      momo: { scale: 0.6, x: -160, y: 190 },
+    },
+    "(min-width: 394px) and (max-width: 414px)": {
+      mufti: { scale: 0.6, x: 290, y: 117 },
+      weds: { scale: 0.8, y: 160 },
+      momo: { scale: 0.6, x: -175, y: 190 },
+    },
+    "(min-width: 415px) and (max-width: 428px)": {
+      mufti: { scale: 0.62, x: 285, y: 118 },
+      weds: { scale: 0.8, y: 162 },
+      momo: { scale: 0.62, x: -172, y: 192 },
+    },
+    "(min-width: 429px) and (max-width: 430px)": {
+      mufti: { scale: 0.62, x: 320, y: 119 },
+      weds: { scale: 3, y: 195 },
+      momo: { scale: 0.62, x: -180, y: 210 },
+    },
+    "(min-width: 431px) and (max-width: 479px)": {
+      mufti: { scale: 0.6, x: 300, y: 120 },
+      weds: { scale: 0.8, y: 160 },
+      momo: { scale: 0.6, x: -180, y: 200 },
+    },
+    "(min-width: 480px) and (max-width: 639px)": {
+      mufti: { scale: 0.6, x: 370, y: 120 },
+      weds: { scale: 3, y: 200 },
+      momo: { scale: 0.6, x: -200, y: 220 },
+    },
+    "(min-width: 640px) and (max-width: 767px)": {
+      mufti: { scale: 0.7, x: 410, y: 120 },
+      weds: { scale: 0.8, y: 175 },
+      momo: { scale: 0.7, x: -200, y: 220 },
+    },
+    "(min-width: 768px) and (max-width: 820px)": {
+      mufti: { scale: 0.75, x: 100, y: 330 },
+      weds: { scale: 0.7, y: 343 },
+      momo: { scale: 0.75, x: -90, y: 358 },
+    },
+    "(min-width: 821px) and (max-width: 1023px)": {
+      mufti: { scale: 0.75, x: 100, y: 330 },
+      weds: { scale: 0.7, y: 344 },
+      momo: { scale: 0.75, x: -90, y: 358 },
+    },
+    "(min-width: 1024px)": {
+      mufti: { scale: 0.5, x: 160, y: 375 },
+      weds: { scale: 0.8, y: 388 },
+      momo: { scale: 0.5, x: -155, y: 410 },
+    },
+  });
 
   useGSAP(() => {
-    const values = getResponsiveValues();
+    const mm = gsap.matchMedia();
+    const breakpoints = getResponsiveValues();
 
-    gsap.fromTo(
-      mufti.current,
-      {
-        scale: values.mufti.scale,
-        x: values.mufti.x,
-        y: values.mufti.y,
-      },
-      {
-        scale: 1,
-        x: 0,
-        y: 0,
-        scrollTrigger: {
-          trigger: mufti.current,
-          start: "top center",
-          end: "top top",
-          scrub: 1,
-        },
-      }
-    );
-    gsap.fromTo(
-      weds.current,
-      {
-        scale: 0.5,
-        y: values.weds.y,
-      },
-      {
-        scale: 1,
-        y: 0,
-        scrollTrigger: {
-          trigger: weds.current,
-          start: "top center",
-          end: "top top",
-          scrub: 1,
-        },
-      }
-    );
-    gsap.fromTo(
-      momo.current,
-      {
-        scale: values.momo.scale,
-        x: values.momo.x,
-        y: values.momo.y,
-      },
-      {
-        scale: 1,
-        x: 0,
-        y: 0,
-        scrollTrigger: {
-          trigger: momo.current,
-          start: "top center",
-          end: "top top",
-          scrub: 1,
-        },
-        onComplete: () => {
-          const leaves = gsap.utils.toArray([
-            leaf1.current,
-            leaf2.current,
-            leaf3.current,
-            leaf4.current,
-            leaf5.current,
-            leaf6.current,
-            leaf7.current,
-            leaf8.current,
-          ]);
-
-          gsap.to(leaves, {
+    Object.entries(breakpoints).forEach(([query, values]) => {
+      mm.add(query, () => {
+        gsap.fromTo(
+          mufti.current,
+          {
+            scale: values.mufti.scale,
+            x: values.mufti.x,
+            y: values.mufti.y,
+            force3D: true,
+          },
+          {
             scale: 1,
-            stagger: 0.2,
+            x: 0,
+            y: 0,
             scrollTrigger: {
               trigger: mufti.current,
               start: "top center",
-              end: "top center",
+              end: "top top",
               scrub: 1,
-              immediateRender: false,
-              toggleActions: "play none none none",
             },
-          });
-        },
-      }
-    );
-  });
+          }
+        );
+
+        gsap.fromTo(
+          weds.current,
+          {
+            scale: values.weds.scale,
+            y: values.weds.y,
+            force3D: true,
+          },
+          {
+            scale: 1,
+            y: 0,
+            scrollTrigger: {
+              trigger: weds.current,
+              start: "top center",
+              end: "top top",
+              scrub: 1,
+            },
+          }
+        );
+
+        gsap.fromTo(
+          momo.current,
+          {
+            scale: values.momo.scale,
+            x: values.momo.x,
+            y: values.momo.y,
+            force3D: true,
+          },
+          {
+            scale: 1,
+            x: 0,
+            y: 0,
+            scrollTrigger: {
+              trigger: momo.current,
+              start: "top center",
+              end: "top top",
+              scrub: 1,
+            },
+            onComplete: () => {
+              const leaves = [
+                leaf1.current,
+                leaf2.current,
+                leaf3.current,
+                leaf4.current,
+                leaf5.current,
+                leaf6.current,
+                leaf7.current,
+                leaf8.current,
+              ];
+
+              gsap.to(leaves, {
+                scale: 1,
+                stagger: 0.2,
+                force3D: true,
+                scrollTrigger: {
+                  trigger: mufti.current,
+                  start: "top center",
+                  end: "top center",
+                  scrub: 1,
+                  immediateRender: false,
+                  toggleActions: "play none none none",
+                },
+              });
+            },
+          }
+        );
+      });
+    });
+
+    return () => mm.revert();
+  }, []);
 
   return (
     <>

@@ -90,9 +90,9 @@ const Ourstory = () => {
       momo: { scale: 0.75, x: -90, y: 358 },
     },
     "(min-width: 1024px)": {
-      mufti: { scale: 0.5, x: 160, y: 375 },
-      weds: { scale: 0.8, y: 388 },
-      momo: { scale: 0.5, x: -155, y: 410 },
+      mufti: { scale: 0.5, x: 170, y: 316 },
+      weds: { scale: 0.7, y: 328 },
+      momo: { scale: 0.5, x: -155, y: 348 },
     },
   });
 

@@ -100,7 +100,12 @@ const Holud = () => {
           Please join us for the Dinner and an evening of Traditional Music and
           Dance to celebrate the Holud Ceremony of Mufti & Momo
         </p>
-        <button className="flex items-center gap-x-4 justify-between px-8 py-4 md:px-12 md:py-4 text-lg md:text-xl bg-custom-golden bg-opacity-80 rounded-full text-zinc-50 font-medium mt-8 lg:mt-12 hover:bg-opacity-100 transition-all duration-200 z-10">
+        <button
+          className="flex items-center gap-x-4 justify-between px-8 py-4 md:px-12 md:py-4 text-lg md:text-xl bg-custom-golden bg-opacity-80 rounded-full text-zinc-50 font-medium mt-8 lg:mt-12 hover:bg-opacity-100 transition-all duration-200 z-10"
+          onClick={() =>
+            (window.location.href = "https://forms.gle/QcaWS2ywFPgHkfQk8")
+          }
+        >
           RSVP
           <ArrowRight
             className="-mb-0.5 size-6 text-zinc-50"

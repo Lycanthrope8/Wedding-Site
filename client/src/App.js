@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/nikkah" element={<NikkahPage />} />
         <Route path="/wedding" element={<WeddingPage />} />
-        <Route path="/" element={<Navigate replace to="/nikkah" />} />
+        <Route path="/" element={<Navigate replace to="/wedding" />} />
       </Routes>
     </Router>
   );

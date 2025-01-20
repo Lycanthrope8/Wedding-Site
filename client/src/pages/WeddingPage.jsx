@@ -4,12 +4,12 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import palki from "../assets/palki.webp";
-import Nikkah from "../components/nikkah";
-import Gifts from "../components/gifts";
+import Nikkah from "../components/Nikkah";
+import Gifts from "../components/Gifts";
 import AnotherNavbar from "../components/AnotherNavbar";
-import Countdown from "../components/countdown";
+import Countdown from "../components/Countdown";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import Ourstory from "../components/ourstory";
+import Ourstory from "../components/Ourstory";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 

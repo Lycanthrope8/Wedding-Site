@@ -44,7 +44,7 @@ function App() {
       scrollTrigger: {
         trigger: palkiRef.current,
         start: "top top",
-        end: "top+=80% top",
+        end: "top+=100% top",
         scrub: 1,
         pin: "#main",
         pinSpacing: false,

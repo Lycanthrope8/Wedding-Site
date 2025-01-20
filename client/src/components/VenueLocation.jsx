@@ -143,19 +143,21 @@ const VenueLocation = ({ ceremony, date, time }) => {
                 )}
               </div>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 w-full">
-                <div className="flex items-center gap-4 text-slate-700">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-y-6 w-full px-0 md:px-4">
+                <div className="flex w-full items-center md:justify-center gap-4 text-slate-700">
                   <div className="p-3 bg-yellow-50 rounded-xl">
                     <Clock className="w-6 h-6 text-custom-golden" />
                   </div>
-                  <div>
+                  <di>
                     <p className="text-sm text-custom-golden font-medium">
                       Time
                     </p>
-                    <span className="font-semibold text-2xl">{time}</span>
-                  </div>
+                    <span className="font-semibold text-[1.15rem] md:text-2xl">
+                      {time}
+                    </span>
+                  </di>
                 </div>
-                <div className="flex items-center gap-4 text-slate-700">
+                <div className="flex w-full items-center justify-center gap-4 text-slate-700">
                   <div className="p-3 bg-yellow-50 rounded-xl">
                     <MapPin className="w-6 h-6 text-custom-golden" />
                   </div>
@@ -163,9 +165,7 @@ const VenueLocation = ({ ceremony, date, time }) => {
                     <p className="text-sm text-custom-golden font-medium">
                       Location
                     </p>
-                    {/* <p className="font-semibold text-xl">1 Marina Road</p>
-                    <p className="font-semibold text-lg">Flushing, NY 11368</p> */}
-                    <p className="font-semibold text-lg">
+                    <p className="font-semibold text-xl md:text-2xl">
                       World's Fair Marina Banquet
                     </p>
                   </div>

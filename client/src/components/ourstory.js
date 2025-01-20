@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import corner3 from "../assets/corner3.png";
+import corner from "../assets/corner.png";
 import couplePic from "../assets/muftibhaiyamomoapu.jpeg";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -35,9 +35,9 @@ const Ourstory = () => {
       momo: { scale: 0.6, x: -180, y: 190 },
     },
     "(min-width: 321px) and (max-width: 375px)": {
-      mufti: { scale: 0.6, x: 320, y: 110 },
-      weds: { scale: 0.8, y: 158 },
-      momo: { scale: 0.6, x: -170, y: 190 },
+      mufti: { scale: 0.6, x: 250, y: 110 },
+      weds: { scale: 3, y: 175 },
+      momo: { scale: 0.6, x: -145, y: 190 },
     },
     "(min-width: 376px) and (max-width: 390px)": {
       mufti: { scale: 0.6, x: 270, y: 115 },
@@ -212,37 +212,39 @@ const Ourstory = () => {
           </div>
         </div>
         <img
-          src={corner3}
+          src={corner}
           alt="Corner"
           className="absolute top-100 left-0 size-24 lg:size-48 scale-x-[-1] -rotate-90"
         />
         <img
-          src={corner3}
+          src={corner}
           alt="Corner"
           className="absolute top-100 right-0 size-24 lg:size-48 rotate-90"
         />
         <div
-          className="flex items-center justify-center gap-2 lg:gap-4 pt-20 lg:pt-28"
+          className="flex flex-col items-center justify-center gap-2 lg:gap-4 pt-20 lg:pt-28"
           ref={sectionRef}
         >
-          <h1
-            ref={mufti}
-            className="font-passionsConflict text-6xl sm:text-6xl lg:text-9xl text-yellow-600 z-40 will-change-transform"
-          >
-            Mufti
-          </h1>
-          <span
-            ref={weds}
-            className="font-passionsConflict text-2xl sm:text-6xl lg:text-6xl z-40 will-change-transform"
-          >
-            weds
-          </span>
-          <h1
-            ref={momo}
-            className="font-passionsConflict text-6xl sm:text-6xl lg:text-9xl text-yellow-600 z-40 will-change-transform"
-          >
-            Momo
-          </h1>
+          <div className="flex items-center justify-center gap-2 lg:gap-4">
+            <h1
+              ref={mufti}
+              className="font-passionsConflict text-6xl sm:text-6xl lg:text-9xl text-yellow-600 z-40 will-change-transform"
+            >
+              Mufti
+            </h1>
+            <span
+              ref={weds}
+              className="font-passionsConflict text-2xl sm:text-6xl lg:text-6xl z-40 will-change-transform"
+            >
+              weds
+            </span>
+            <h1
+              ref={momo}
+              className="font-passionsConflict text-6xl sm:text-6xl lg:text-9xl text-yellow-600 z-40 will-change-transform"
+            >
+              Momo
+            </h1>
+          </div>
         </div>
         <div className="flex flex-col items-center mt-4 space-y-6 lg:mt-8">
           <h1 className="text-2xl lg:text-4xl text-gray-700 font-semibold font-poppins">

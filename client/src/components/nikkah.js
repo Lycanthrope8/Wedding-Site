@@ -1,5 +1,5 @@
 import React from "react";
-import couple from "../assets/couple2.jpg";
+import couple from "../assets/couple.jpg";
 import heroFlower from "../assets/heroflower.webp";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -12,6 +12,7 @@ import {
   Cake,
   PartyPopper,
   Sandwich,
+  Sparkles,
   Camera,
 } from "lucide-react";
 import GateComponent from "../assets/gateComponent";
@@ -40,7 +41,22 @@ const Nikkah = () => {
         id="nikkah"
         className="relative w-full min-h-screen pb-12 px-4 sm:px-6 lg:px-0 bg-gradient-to-b from-zinc-100 to-[#dad8c9]"
       >
-        <h2 className="text-center text-slate-700 font-poppins font-semibold text-sm sm:text-base pt-20 sm:pt-16 md:pt-28">
+        <div className="flex flex-col items-center justify-center">
+          <div className="flex items-center gap-3">
+            <div className="h-px w-12 md:w-20 bg-yellow-600/50" />
+            <Sparkles className="text-yellow-600 size-4" />
+            <h2 className="font-passionsConflict text-5xl md:text-7xl text-yellow-600">
+              Nikkah
+            </h2>
+            <Sparkles className="text-yellow-600 size-4" />
+            <div className="h-px w-12 md:w-20 bg-yellow-600/50" />
+          </div>
+          <div className="text-center text-yellow-600/80 font-arabic text-xl md:text-2xl">
+            نکاح
+          </div>
+          <div className="w-36 md:w-48 h-0.5 bg-gradient-to-r from-transparent via-yellow-600/30 to-transparent mt-2" />
+        </div>
+        <h2 className="text-center text-slate-700 font-poppins font-semibold text-sm sm:text-xl pt-8 sm:pt-8 md:pt-12">
           Join us on this happy beginning of our new life
         </h2>
 
@@ -75,7 +91,7 @@ const Nikkah = () => {
         </div>
 
         <PipesPattern />
-        <VenueLocation ceremony="Nikkah" date="23" time="12:00 PM" />
+        <VenueLocation ceremony="Nikkah" date="23" time="12:00 PM - 5:00 PM" />
         <WeddingTimeline title="Nikkah Timeline" events={nikkahEvents} />
       </div>
     </>

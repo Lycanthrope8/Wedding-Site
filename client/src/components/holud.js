@@ -92,7 +92,7 @@ const Holud = () => {
         alt="Holud Background"
         className="absolute -bottom-20 -right-20 object-contain w-40 h-40 lg:w-96 lg:h-96 z-20 mix-blend-multiply transfrom-origin-bottom-right transition-all duration-1000 ease-in-out"
       />
-      <div className="h-full w-full flex flex-col items-center justify-evenly pt-20 lg:pt-28 z-10">
+      <div className="h-full w-full flex flex-col items-center justify-evenly pt-12 lg:pt-28 z-10">
         <h1 className="text-4xl lg:text-8xl text-custom-golden font-passionsConflict z-10">
           Join us on our Holud ceremony!
         </h1>
@@ -107,7 +107,7 @@ const Holud = () => {
             strokeWidth={2.5}
           />
         </button>
-        <VenueLocation ceremony="Holud" date="21" time="7:00 PM" />
+        <VenueLocation ceremony="Holud" date="21" time="7:00 PM - 12:00 AM" />
 
         <WeddingTimeline title="Holud Timeline" events={holudEvents} />
       </div>

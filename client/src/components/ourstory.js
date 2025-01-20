@@ -324,6 +324,9 @@ const Ourstory = () => {
                     alt="Couple"
                     className="rounded-full w-full h-full z-20"
                   />
+                  <div className="absolute w-full bottom-0 mx-auto z-50 text-center">
+                    <h1>Tajbiha Hossain Momo Mufti Hossain</h1>
+                  </div>
                 </div>
               </div>
             </div>

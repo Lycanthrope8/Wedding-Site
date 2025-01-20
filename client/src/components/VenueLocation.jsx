@@ -84,8 +84,8 @@ const VenueLocation = ({ ceremony, date, time }) => {
 
   return (
     <>
-      <div className="w-full mt-8 lg:mt-12 px-4 sm:px-8 lg:px-12 z-10">
-        <h2 className="text-center text-4xl sm:text-5xl lg:text-7xl text-yellow-600 font-passionsConflict mb-6 sm:mb-8">
+      <div className="w-full mt-4 lg:mt-8 px-4 sm:px-8 lg:px-12 z-10">
+        <h2 className="text-center text-5xl lg:text-8xl text-yellow-600 font-passionsConflict mb-6 sm:mb-8">
           Venue Location
         </h2>
 

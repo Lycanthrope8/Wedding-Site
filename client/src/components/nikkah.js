@@ -41,7 +41,7 @@ const Nikkah = () => {
         id="nikkah"
         className="relative w-full min-h-screen pb-12 px-4 sm:px-6 lg:px-0 bg-gradient-to-b from-zinc-100 to-[#dad8c9]"
       >
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center pt-16 sm:pt-16 md:pt-28">
           <div className="flex items-center gap-3">
             <div className="h-px w-12 md:w-20 bg-yellow-600/50" />
             <Sparkles className="text-yellow-600 size-4" />
@@ -56,7 +56,7 @@ const Nikkah = () => {
           </div>
           <div className="w-36 md:w-48 h-0.5 bg-gradient-to-r from-transparent via-yellow-600/30 to-transparent mt-2" />
         </div>
-        <h2 className="text-center text-slate-700 font-poppins font-semibold text-sm sm:text-xl pt-8 sm:pt-8 md:pt-12">
+        <h2 className="text-center text-slate-700 font-poppins font-semibold text-sm sm:text-xl pt-12">
           Join us on this happy beginning of our new life
         </h2>
 

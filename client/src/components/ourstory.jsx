@@ -313,7 +313,7 @@ const Ourstory = () => {
                   />
                 </div>
                 <div
-                  className="relative rounded-full z-20"
+                  className="relative rounded-full z-20 flex justify-center"
                   style={{
                     backgroundColor: "#DFDECB",
                     padding: "8px",
@@ -324,8 +324,21 @@ const Ourstory = () => {
                     alt="Couple"
                     className="rounded-full w-full h-full z-20"
                   />
-                  <div className="absolute w-full bottom-0 mx-auto z-50 text-center">
-                    <h1>Tajbiha Hossain Momo Mufti Hossain</h1>
+                  <div
+                    className="absolute flex items-center justify-evenly gap-12 w-full bottom-0 mx-auto h-3/5 p-8 z-50 bg-zinc-800 rounded-b-full"
+                    style={{
+                      maskImage:
+                        "linear-gradient(to bottom, transparent 50%, black)",
+                    }}
+                  ></div>
+                  <div className="absolute flex items-center justify-center md:justify-evenly gap-48 md:gap-16 w-full -bottom-12 md:-bottom-16 md:mx-auto h-3/5 p-0 md:p-8 z-50 text-center font-poppins bg-transparent rounded-b-full">
+                    <h1 className="text-custom-golden md:text-zinc-200 w-full md:w-1/4 text-base md:text-lg font-semibold md:text-start leading-tight">
+                      Tajbiha Hossain Momo
+                    </h1>
+                    <h1 className="text-custom-golden md:text-zinc-200 w-full md:w-1/4 text-base md:text-lg font-semibold text-start md:text-end leading-tight">
+                      {" "}
+                      Mufti Hossain
+                    </h1>
                   </div>
                 </div>
               </div>

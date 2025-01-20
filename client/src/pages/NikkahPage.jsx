@@ -14,7 +14,6 @@ import Ourstory from "../components/ourstory";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-
 export default function NikkahPage() {
   const palkiRef = useRef(null);
   const palkibgRef = useRef(null);

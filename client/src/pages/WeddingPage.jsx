@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import palki from "../assets/palki.webp";
 import Nikkah from "../components/nikkah";
 import Gifts from "../components/gifts";
-import Navbar from "../components/navbar";
+import AnotherNavbar from "../components/AnotherNavbar";
 import Countdown from "../components/countdown";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import Ourstory from "../components/ourstory";
@@ -102,7 +102,7 @@ export default function WeddingPage() {
   return (
     <>
       <div id="nav" ref={navRef}>
-        <Navbar />
+        <AnotherNavbar />
       </div>
       <div
         id="main"

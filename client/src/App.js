@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import NikkahPage from "./pages/NikkahPage";
 import WeddingPage from "./pages/WeddingPage";
-import Navbar from "./components/navbar";
+
 
 function App() {
   return (

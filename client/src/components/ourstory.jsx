@@ -71,13 +71,13 @@ const Ourstory = () => {
     },
     "(min-width: 431px) and (max-width: 479px)": {
       mufti: { scale: 0.6, x: 300, y: 120 },
-      weds: { scale: 0.8, y: 160 },
-      momo: { scale: 0.6, x: -180, y: 200 },
+      weds: { scale: 3, y: 190 },
+      momo: { scale: 0.6, x: -180, y: 210 },
     },
     "(min-width: 480px) and (max-width: 639px)": {
-      mufti: { scale: 0.6, x: 370, y: 120 },
+      mufti: { scale: 0.6, x: 330, y: 120 },
       weds: { scale: 3, y: 200 },
-      momo: { scale: 0.6, x: -200, y: 220 },
+      momo: { scale: 0.6, x: -160, y: 220 },
     },
     "(min-width: 640px) and (max-width: 767px)": {
       mufti: { scale: 0.7, x: 410, y: 120 },
@@ -85,14 +85,14 @@ const Ourstory = () => {
       momo: { scale: 0.7, x: -200, y: 220 },
     },
     "(min-width: 768px) and (max-width: 820px)": {
-      mufti: { scale: 0.75, x: 100, y: 330 },
-      weds: { scale: 0.7, y: 343 },
-      momo: { scale: 0.75, x: -90, y: 358 },
+      mufti: { scale: 0.75, x: 100, y: 345 },
+      weds: { scale: 0.8, y: 360 },
+      momo: { scale: 0.75, x: -90, y: 375 },
     },
     "(min-width: 821px) and (max-width: 1023px)": {
-      mufti: { scale: 0.75, x: 100, y: 330 },
-      weds: { scale: 0.7, y: 344 },
-      momo: { scale: 0.75, x: -90, y: 358 },
+      mufti: { scale: 0.75, x: 100, y: 350 },
+      weds: { scale: 0.8, y: 365 },
+      momo: { scale: 0.75, x: -90, y: 378 },
     },
     "(min-width: 1024px)": {
       mufti: { scale: 0.5, x: 170, y: 316 },

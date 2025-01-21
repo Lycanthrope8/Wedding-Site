@@ -4,7 +4,7 @@ import heroFlower from "../assets/heroflower.webp";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import WeddingTimeline from "./timeline";
+import WeddingTimeline from "./Timeline";
 import PipesPattern from "../assets/pipespattern";
 import {
   ArrowRight,

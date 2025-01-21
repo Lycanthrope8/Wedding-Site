@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import holudbg from "../assets/holudbg.webp";
 import Flowerpattern from "../assets/flowerpattern";
-import WeddingTimeline from "./timeline";
+import WeddingTimeline from "./Timeline";
 import {
   ArrowRight,
   UtensilsCrossed,

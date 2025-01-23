@@ -147,8 +147,8 @@ const Gifts = ({ ceremony }) => {
                 className={`w-full flex items-center gap-x-4 justify-between px-6 py-3 ${
                   loading
                     ? "bg-gray-500 cursor-not-allowed"
-                    : "bg-custom-golden"
-                } bg-opacity-80 rounded-full text-zinc-50 font-medium hover:bg-opacity-100 transition-all duration-300 transform hover:scale-105`}
+                    : "bg-custom-golden/80"
+                }  rounded-full text-zinc-50 hover:text-custom-golden/80 font-medium transition-all duration-200 transform hover:bg-transparent border-2 border-custom-golden/0 hover:border-custom-golden/80`}
                 disabled={loading}
               >
                 {loading ? "Submitting..." : "Confirm RSVP"}

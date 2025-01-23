@@ -166,8 +166,10 @@ const Gifts = ({ ceremony }) => {
           <div className="col-span-1 w-full flex items-center justify-center">
             <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl w-full shadow-lg transition-all duration-300 hover:shadow-xl">
               <Gift className="text-yellow-600 mx-auto mb-4" size={40} />
-              <h2 className="text-3xl font-bold mb-6 text-slate-700 text-center">
-                Gift QR Codes
+              <h2 className="text-sm md:text-lg font-bold mb-6 text-slate-700 text-center text-pretty">
+                Your presence is enough of a present to us! But for those of you
+                who are stubborn, we've put together a wish-list to help you
+                out.
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 {[1, 2, 3].map((qr) => (

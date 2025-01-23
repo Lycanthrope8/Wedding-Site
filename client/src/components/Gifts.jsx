@@ -146,9 +146,9 @@ const Gifts = ({ ceremony }) => {
                 type="submit"
                 className={`w-full flex items-center gap-x-4 justify-between px-6 py-3 ${
                   loading
-                    ? "bg-gray-500 cursor-not-allowed"
-                    : "bg-custom-golden/80"
-                }  rounded-full text-zinc-50 hover:text-custom-golden/80 font-medium transition-all duration-200 transform hover:bg-transparent border-2 border-custom-golden/0 hover:border-custom-golden/80`}
+                    ? "bg-gray-500 border-gray-500/0 cursor-not-allowed"
+                    : "bg-custom-golden/80 border-custom-golden/0 hover:bg-transparent hover:border-custom-golden/80 hover:text-custom-golden/80"
+                }  rounded-full text-zinc-50 font-medium transition-all duration-200 transform  border-2`}
                 disabled={loading}
               >
                 {loading ? "Submitting..." : "Confirm RSVP"}

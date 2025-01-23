@@ -5,7 +5,8 @@ import { MdOutlineRsvp } from "react-icons/md";
 const Gifts = ({ ceremony }) => {
   const [loading, setLoading] = useState(false);
   const [fullName, setFullName] = useState("");
-  const [attendeeCount, setAttendeeCount] = useState(1);
+  const [attendeeCountHolud, setAttendeeCountHolud] = useState(1);
+  const [attendeeCountNikkah, setAttendeeCountNikkah] = useState(1);
   const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -14,11 +15,17 @@ const Gifts = ({ ceremony }) => {
 
     const params = new URLSearchParams();
     params.append("Name", fullName);
-    params.append("Count", attendeeCount);
+    params.append("Ceremony", ceremony);
+    if (ceremony === "wedding") {
+      params.append("NikkahCount", attendeeCountNikkah);
+    } else if (ceremony === "nikkah") {
+      params.append("HoludCount", attendeeCountHolud);
+      params.append("NikkahCount", attendeeCountNikkah);
+    }
 
     try {
       await fetch(
-        "https://script.google.com/macros/s/AKfycbzFgx6B8lBI-i6AZIXoeDqyaill2QYNg8oR7kZa8pPVukhR2H4hFIGfxleZv-OU2R_6/exec",
+        "https://script.google.com/macros/s/AKfycbxy1rxrmPg3kbXlpiLCDde7ytyC4tapAOYk5u0peDbUqAGvlT4ork28u0g78nFA2teX/exec",
         {
           method: "POST",
           headers: {
@@ -31,7 +38,8 @@ const Gifts = ({ ceremony }) => {
 
       setShowModal(true);
       setFullName("");
-      setAttendeeCount(1);
+      setAttendeeCountHolud(1);
+      setAttendeeCountNikkah(1);
     } catch (error) {
       alert("Error submitting RSVP. Please try again.");
       console.error("Submission error:", error);
@@ -43,11 +51,11 @@ const Gifts = ({ ceremony }) => {
   return (
     <div
       id="gifts"
-      className="flex items-center justify-center min-h-screen bg-gradient-to-b from-zinc-100 to-[#dad8c9] p-4 font-poppins"
+      className="relative flex items-center justify-center min-h-screen bg-gradient-to-b from-zinc-100 to-[#dad8c9] p-4 font-poppins"
     >
-      <div className="w-full max-w-6xl mx-auto">
+      <div className="w-full md:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="col-span-1 bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl">
+          <div className="col-span-1 w-full bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl">
             <div className="flex items-center justify-center mb-6">
               <MdOutlineRsvp className="text-yellow-600 mr-3" size={40} />
               <h2 className="text-4xl font-bold text-slate-700">RSVP</h2>
@@ -77,48 +85,50 @@ const Gifts = ({ ceremony }) => {
                 </div>
               </div>
 
-              <div>
-                <label
-                  htmlFor="attendeeCount"
-                  className="block text-sm font-medium text-slate-700 mb-2"
-                >
-                  How many of you are attending including yourself in the{" "}
-                  {ceremony} Ceremony?
-                </label>
-                <div className="relative">
-                  <input
-                    id="attendeeCount"
-                    type="number"
-                    value={attendeeCount}
-                    onChange={(e) =>
-                      setAttendeeCount(Number.parseInt(e.target.value))
-                    }
-                    min="0"
-                    required
-                    className="w-full px-4 py-3 border border-yellow-600/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600 pl-10 transition-all duration-200 hover:border-yellow-600/50"
-                    placeholder="Number of Attendees (including you)"
-                  />
-                  <Users
-                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-yellow-600"
-                    size={20}
-                  />
+              {ceremony === "nikkah" ? (
+                <div>
+                  <label
+                    htmlFor="attendeeCountHolud"
+                    className="block text-sm font-medium text-slate-700 mb-2"
+                  >
+                    How many of you are attending including yourself in the
+                    holud ceremony?
+                  </label>
+                  <div className="relative">
+                    <input
+                      id="attendeeCount"
+                      type="number"
+                      value={attendeeCountHolud}
+                      onChange={(e) =>
+                        setAttendeeCountHolud(Number.parseInt(e.target.value))
+                      }
+                      min="0"
+                      required
+                      className="w-full px-4 py-3 border border-yellow-600/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600 pl-10 transition-all duration-200 hover:border-yellow-600/50"
+                      placeholder="Number of Attendees (including you)"
+                    />
+                    <Users
+                      className="absolute left-3 top-1/2 transform -translate-y-1/2 text-yellow-600"
+                      size={20}
+                    />
+                  </div>
                 </div>
-              </div>
+              ) : null}
               <div>
                 <label
                   htmlFor="attendeeCount"
                   className="block text-sm font-medium text-slate-700 mb-2"
                 >
                   How many of you are attending including yourself in the{" "}
-                  {ceremony} Ceremony?
+                  {ceremony} ceremony?
                 </label>
                 <div className="relative">
                   <input
                     id="attendeeCount"
                     type="number"
-                    value={attendeeCount}
+                    value={attendeeCountNikkah}
                     onChange={(e) =>
-                      setAttendeeCount(Number.parseInt(e.target.value))
+                      setAttendeeCountNikkah(Number.parseInt(e.target.value))
                     }
                     min="0"
                     required
@@ -152,7 +162,7 @@ const Gifts = ({ ceremony }) => {
             </form>
           </div>
 
-          <div className="col-span-1 flex items-center justify-center">
+          <div className="col-span-1 w-full flex items-center justify-center">
             <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl w-full shadow-lg transition-all duration-300 hover:shadow-xl">
               <Gift className="text-yellow-600 mx-auto mb-4" size={40} />
               <h2 className="text-3xl font-bold mb-6 text-slate-700 text-center">
@@ -179,7 +189,7 @@ const Gifts = ({ ceremony }) => {
       </div>
 
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-8 max-w-md w-full">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-2xl font-bold text-slate-700">Thank You!</h3>

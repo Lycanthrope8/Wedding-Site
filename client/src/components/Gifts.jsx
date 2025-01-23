@@ -91,7 +91,7 @@ const Gifts = ({ ceremony }) => {
                     htmlFor="attendeeCountHolud"
                     className="block text-base font-medium text-slate-700 mb-2"
                   >
-                    How many of you are attending including yourself in the
+                    How many of you are attending including yourself in the{" "}
                     <span className="text-custom-golden">holud</span> ceremony?
                   </label>
                   <div className="relative">

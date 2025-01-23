@@ -51,7 +51,7 @@ const Gifts = ({ ceremony }) => {
   return (
     <div
       id="gifts"
-      className="relative flex items-center justify-center min-h-screen bg-gradient-to-b from-zinc-100 to-[#dad8c9] p-4 font-poppins"
+      className="relative flex items-center justify-center min-h-screen bg-gradient-to-b from-zinc-100 to-[#dad8c9] pt-[20vh] md:p-4 font-poppins"
     >
       <div className="w-full md:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

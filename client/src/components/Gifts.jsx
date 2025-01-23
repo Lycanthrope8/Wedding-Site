@@ -64,7 +64,7 @@ const Gifts = ({ ceremony }) => {
               <div>
                 <label
                   htmlFor="fullName"
-                  className="block text-sm font-medium text-slate-700 mb-2"
+                  className="block text-base font-medium text-slate-700 mb-2"
                 >
                   Your Full Name
                 </label>
@@ -89,10 +89,10 @@ const Gifts = ({ ceremony }) => {
                 <div>
                   <label
                     htmlFor="attendeeCountHolud"
-                    className="block text-sm font-medium text-slate-700 mb-2"
+                    className="block text-base font-medium text-slate-700 mb-2"
                   >
                     How many of you are attending including yourself in the
-                    holud ceremony?
+                    <span className="text-custom-golden">holud</span> ceremony?
                   </label>
                   <div className="relative">
                     <input
@@ -117,10 +117,11 @@ const Gifts = ({ ceremony }) => {
               <div>
                 <label
                   htmlFor="attendeeCount"
-                  className="block text-sm font-medium text-slate-700 mb-2"
+                  className="block text-base font-medium text-slate-700 mb-2"
                 >
                   How many of you are attending including yourself in the{" "}
-                  {ceremony} ceremony?
+                  <span className="text-custom-golden">{ceremony}</span>{" "}
+                  ceremony?
                 </label>
                 <div className="relative">
                   <input

@@ -47,7 +47,6 @@ export default function NikkahPage() {
         end: "top+=100% top",
         scrub: 1,
         pin: "#main",
-        pinSpacing: false,
         anticipatePin: 1,
         onLeave: () => {
           setIsScrollEnabled(true);
@@ -151,7 +150,7 @@ export default function NikkahPage() {
           <Countdown targetDate="Feb 21, 2025 19:00:00" color="#fde047" />
           <Nikkah />
           <Countdown targetDate="Feb 23, 2025 12:00:00" color="#dad8c9" />
-          <Gifts id="gifts" />
+          <Gifts id="gifts" ceremony="nikkah" />
         </div>
       </div>
     </>

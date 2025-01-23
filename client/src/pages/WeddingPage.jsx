@@ -46,7 +46,6 @@ export default function WeddingPage() {
         end: "top+=100% top",
         scrub: 1,
         pin: "#main",
-        pinSpacing: false,
         anticipatePin: 1,
         onLeave: () => {
           setIsScrollEnabled(true);
@@ -148,7 +147,7 @@ export default function WeddingPage() {
           <Ourstory />
           <Nikkah />
           <Countdown targetDate="Feb 23, 2025 12:00:00" color="#dad8c9" />
-          <Gifts id="gifts" />
+          <Gifts id="gifts" ceremony="wedding" />
         </div>
       </div>
     </>

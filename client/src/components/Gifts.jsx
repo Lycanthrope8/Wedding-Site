@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { ArrowRight, Gift, Users, X } from "lucide-react";
 import { MdOutlineRsvp } from "react-icons/md";
+import qr1 from "../assets/cashapp.PNG";
+import qr2 from "../assets/venmo.PNG";
+import qr3 from "../assets/zelle.PNG";
 
 const Gifts = ({ ceremony }) => {
   const [loading, setLoading] = useState(false);
@@ -174,19 +177,18 @@ const Gifts = ({ ceremony }) => {
                 wish-list to help you out.
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                {[1, 2, 3].map((qr) => (
-                  <div
-                    key={qr}
-                    className="border-2 border-yellow-600/30 p-4 rounded-lg text-center transition-all duration-200 hover:border-yellow-600 hover:shadow-md cursor-pointer"
-                  >
-                    <img
-                      src={`/placeholder.svg?height=150&width=150&text=QR ${qr}`}
-                      alt={`QR Code ${qr}`}
-                      className="mx-auto mb-2"
-                    />
-                    <p className="text-sm text-slate-600">Scan QR {qr}</p>
-                  </div>
-                ))}
+                <div className="flex flex-col items-center justify-center">
+                  <img src={qr1} alt="CashApp QR Code" />
+                  {/* <p className="text-xs text-slate-700 text-center">CashApp</p> */}
+                </div>
+                <div className="flex flex-col items-center justify-center">
+                  <img src={qr2} alt="Venmo QR Code" />
+                  {/* <p className="text-xs text-slate-700 text-center">Venmo</p> */}
+                </div>
+                <div className="flex flex-col items-center justify-center">
+                  <img src={qr3} alt="Zelle QR Code" />
+                  {/* <p className="text-xs text-slate-700 text-center">Zelle</p> */}
+                </div>
               </div>
             </div>
           </div>

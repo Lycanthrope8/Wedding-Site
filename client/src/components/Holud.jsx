@@ -6,7 +6,7 @@ import holudbg from "../assets/holudbg.webp";
 import Flowerpattern from "../assets/flowerpattern";
 import WeddingTimeline from "./Timeline";
 import {
-  ArrowRight,
+  Sparkles,
   UtensilsCrossed,
   Music,
   PartyPopper,
@@ -93,6 +93,21 @@ const Holud = () => {
         className="absolute -bottom-20 -right-20 object-contain w-40 h-40 lg:w-96 lg:h-96 z-20 mix-blend-multiply transfrom-origin-bottom-right transition-all duration-1000 ease-in-out"
       />
       <div className="h-full w-full flex flex-col items-center justify-evenly pt-12 lg:pt-28 z-10">
+        <div className="flex flex-col items-center justify-center">
+          <div className="flex items-center gap-3">
+            <div className="h-px w-12 md:w-20 bg-yellow-600/50" />
+            <Sparkles className="text-yellow-600 size-4" />
+            <h2 className="font-passionsConflict text-5xl md:text-7xl text-yellow-600">
+              Holud
+            </h2>
+            <Sparkles className="text-yellow-600 size-4" />
+            <div className="h-px w-12 md:w-20 bg-yellow-600/50" />
+          </div>
+          <div className="text-center text-yellow-600/80 font-arabic text-xl md:text-2xl">
+            كُركُم
+          </div>
+          <div className="w-36 md:w-48 h-0.5 bg-gradient-to-r from-transparent via-yellow-600/30 to-transparent mt-2" />
+        </div>
         <h1 className="text-4xl lg:text-8xl text-custom-golden font-passionsConflict z-10">
           We invite you on our Holud ceremony!
         </h1>

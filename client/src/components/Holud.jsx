@@ -94,13 +94,13 @@ const Holud = () => {
       />
       <div className="h-full w-full flex flex-col items-center justify-evenly pt-12 lg:pt-28 z-10">
         <h1 className="text-4xl lg:text-8xl text-custom-golden font-passionsConflict z-10">
-          Join us on our Holud ceremony!
+          We invite you on our Holud ceremony!
         </h1>
         <p className="text-sm lg:text-3xl text-center px-4 lg:px-20 text-zinc-700 text-balance font-poppins z-10 mt-2 lg:mt-8">
           Please join us for the Dinner and an evening of Traditional Music and
           Dance to celebrate the Holud Ceremony of Mufti & Momo
         </p>
-        <button
+        {/* <button
           className="flex items-center gap-x-4 justify-between px-8 py-4 md:px-12 md:py-4 text-lg md:text-xl bg-custom-golden bg-opacity-80 rounded-full text-zinc-50 font-medium mt-8 lg:mt-12 hover:bg-opacity-100 transition-all duration-200 z-10"
           onClick={() =>
             (window.location.href = "https://forms.gle/QcaWS2ywFPgHkfQk8")
@@ -111,7 +111,7 @@ const Holud = () => {
             className="-mb-0.5 size-6 text-zinc-50"
             strokeWidth={2.5}
           />
-        </button>
+        </button> */}
         <VenueLocation ceremony="Holud" date="21" time="7:00 PM - 12:00 AM" />
 
         <WeddingTimeline title="Holud Timeline" events={holudEvents} />

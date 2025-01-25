@@ -57,7 +57,7 @@ const Nikkah = () => {
           <div className="w-36 md:w-48 h-0.5 bg-gradient-to-r from-transparent via-yellow-600/30 to-transparent mt-2" />
         </div>
         <h2 className="text-center text-slate-700 font-poppins font-semibold text-sm sm:text-xl pt-12">
-          Join us on this happy beginning of our new life
+          We invite you on this happy beginning of our new life
         </h2>
 
         <div className="flex flex-col lg:flex-row justify-between items-center mt-4 sm:mt-8">
@@ -70,7 +70,7 @@ const Nikkah = () => {
           />
           <div className="flex flex-col items-center gap-6 sm:gap-8 mx-auto lg:ml-auto lg:mx-0 mt-4 sm:mt-8 p-6 sm:p-8 min-h-[300px] w-full sm:w-11/12 lg:w-4/6 bg-white/40 rounded-3xl lg:rounded-l-[140px] lg:rounded-r-none">
             <img
-              src={couple || "/placeholder.svg"}
+              src={couple}
               alt="Couple"
               className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 object-cover mix-blend-multiply z-10 rounded-lg"
             />
@@ -79,13 +79,13 @@ const Nikkah = () => {
                 We're getting married! We request your gracious presence at our
                 Nikkah ceremony!
               </h1>
-              <button className="flex items-center gap-x-4 justify-between px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg bg-custom-golden bg-opacity-80 rounded-full text-zinc-50 font-medium hover:bg-opacity-100 transition-all duration-200">
+              {/* <button className="flex items-center gap-x-4 justify-between px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg bg-custom-golden bg-opacity-80 rounded-full text-zinc-50 font-medium hover:bg-opacity-100 transition-all duration-200">
                 RSVP
                 <ArrowRight
                   className="-mb-0.5 size-5 sm:size-6 text-zinc-50"
                   strokeWidth={2.5}
                 />
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

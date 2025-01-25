@@ -176,18 +176,34 @@ const Gifts = ({ ceremony }) => {
                 But for those of you who are stubborn, we've put together a
                 wish-list to help you out.
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <div className="flex flex-col items-center justify-center">
+              <div className="grid grid-cols-1 place-items-center sm:grid-cols-3 gap-6">
+                <div
+                  className="flex flex-col items-center justify-center cursor-pointer size-52"
+                  onClick={() =>
+                    window.open("https://cash.app/$UsMuftiMomo?qr=1")
+                  }
+                >
                   <img src={qr1} alt="CashApp QR Code" />
-                  {/* <p className="text-xs text-slate-700 text-center">CashApp</p> */}
                 </div>
-                <div className="flex flex-col items-center justify-center">
+                <div
+                  className="flex flex-col items-center justify-center cursor-pointer size-52"
+                  onClick={() =>
+                    window.open(
+                      "https://venmo.com/code?user_id=4252770626438845594&created=1737740449.165318"
+                    )
+                  }
+                >
                   <img src={qr2} alt="Venmo QR Code" />
-                  {/* <p className="text-xs text-slate-700 text-center">Venmo</p> */}
                 </div>
-                <div className="flex flex-col items-center justify-center">
+                <div
+                  className="flex flex-col items-center justify-center cursor-pointer size-52"
+                  onClick={() =>
+                    window.open(
+                      "https://enroll.zellepay.com/qr-codes?data=ewogICJuYW1lIiA6ICJUQUpCSUhBIiwKICAidG9rZW4iIDogIm11ZnRpbW9tbzQ5QGdtYWlsLmNvbSIsCiAgImFjdGlvbiIgOiAicGF5bWVudCIKfQ=="
+                    )
+                  }
+                >
                   <img src={qr3} alt="Zelle QR Code" />
-                  {/* <p className="text-xs text-slate-700 text-center">Zelle</p> */}
                 </div>
               </div>
             </div>

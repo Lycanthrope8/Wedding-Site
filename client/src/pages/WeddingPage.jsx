@@ -106,9 +106,7 @@ export default function WeddingPage() {
       </div>
       <div
         id="main"
-        className={`bg-gradient-to-t from-[#dad8c9] from-60% to-[#e2e0cc] ${
-          isScrollEnabled ? "overflow-auto" : "overflow-hidden"
-        }`}
+        className={`bg-gradient-to-t from-[#dad8c9] from-60% to-[#e2e0cc] overflow-hidden`}
       >
         <div
           ref={palkibgRef}

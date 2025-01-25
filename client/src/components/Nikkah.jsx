@@ -56,7 +56,7 @@ const Nikkah = () => {
           </div>
           <div className="w-36 md:w-48 h-0.5 bg-gradient-to-r from-transparent via-yellow-600/30 to-transparent mt-2" />
         </div>
-        <h2 className="text-center text-slate-700 font-poppins font-semibold text-sm sm:text-xl pt-12">
+        <h2 className="text-center text-custom-golden font-passionsConflict max-w-1/2 text-5xl text-pretty sm:text-8xl pt-6">
           We invite you on this happy beginning of our new life
         </h2>
 

@@ -10,6 +10,7 @@ import AnotherNavbar from "../components/AnotherNavbar";
 import Countdown from "../components/Countdown";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import Ourstory from "../components/Ourstory";
+import Footer from "../components/Footer";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -148,6 +149,7 @@ export default function WeddingPage() {
           <Nikkah />
           <Countdown targetDate="Feb 23, 2025 12:00:00" color="#dad8c9" />
           <Gifts id="gifts" ceremony="wedding" />
+          <Footer />
         </div>
       </div>
     </>

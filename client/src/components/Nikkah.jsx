@@ -79,13 +79,6 @@ const Nikkah = () => {
                 We're getting married! We request your gracious presence at our
                 Nikkah ceremony!
               </h1>
-              {/* <button className="flex items-center gap-x-4 justify-between px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg bg-custom-golden bg-opacity-80 rounded-full text-zinc-50 font-medium hover:bg-opacity-100 transition-all duration-200">
-                RSVP
-                <ArrowRight
-                  className="-mb-0.5 size-5 sm:size-6 text-zinc-50"
-                  strokeWidth={2.5}
-                />
-              </button> */}
             </div>
           </div>
         </div>

@@ -59,9 +59,15 @@ const Gifts = ({ ceremony }) => {
       <div className="w-full md:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="col-span-1 w-full bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl">
-            <div className="flex items-center justify-center mb-6">
-              <MdOutlineRsvp className="text-yellow-600 mr-3" size={40} />
-              <h2 className="text-4xl font-bold text-slate-700">RSVP</h2>
+            <div className="flex flex-col items-center justify-center mb-6">
+              <MdOutlineRsvp className="text-yellow-600 mx-auto" size={80} />
+              <h2 className="text-sm md:text-lg font-bold text-slate-700 text-center text-pretty">
+                Dear guests, we kindly ask you to RSVP by{" "}
+                <span className="text-custom-golden">February 15th</span> to
+                confirm your attendance. Your response will help us finalize the
+                arrangements for our special day. We look forward to celebrating
+                with you!
+              </h2>
             </div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -178,7 +184,7 @@ const Gifts = ({ ceremony }) => {
               </h2>
               <div className="grid grid-cols-1 place-items-center sm:grid-cols-3 gap-6">
                 <div
-                  className="flex flex-col items-center justify-center cursor-pointer size-52"
+                  className="flex flex-col items-center justify-center cursor-pointer size-44"
                   onClick={() =>
                     window.open("https://cash.app/$UsMuftiMomo?qr=1")
                   }
@@ -186,7 +192,7 @@ const Gifts = ({ ceremony }) => {
                   <img src={qr1} alt="CashApp QR Code" />
                 </div>
                 <div
-                  className="flex flex-col items-center justify-center cursor-pointer size-52"
+                  className="flex flex-col items-center justify-center cursor-pointer size-44"
                   onClick={() =>
                     window.open(
                       "https://venmo.com/code?user_id=4252770626438845594&created=1737740449.165318"
@@ -196,7 +202,7 @@ const Gifts = ({ ceremony }) => {
                   <img src={qr2} alt="Venmo QR Code" />
                 </div>
                 <div
-                  className="flex flex-col items-center justify-center cursor-pointer size-52"
+                  className="flex flex-col items-center justify-center cursor-pointer size-44"
                   onClick={() =>
                     window.open(
                       "https://enroll.zellepay.com/qr-codes?data=ewogICJuYW1lIiA6ICJUQUpCSUhBIiwKICAidG9rZW4iIDogIm11ZnRpbW9tbzQ5QGdtYWlsLmNvbSIsCiAgImFjdGlvbiIgOiAicGF5bWVudCIKfQ=="
